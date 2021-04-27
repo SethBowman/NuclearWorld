@@ -9,10 +9,13 @@ namespace NuclearWorld
 
 
             Console.ForegroundColor = ConsoleColor.Cyan;
-            UserInteraction.StoryDialogue(@"       Seth Bowman presents:");            
+            UserInteraction.StoryDialogue(@"                                           Seth Bowman presents:");            
             Console.ForegroundColor = ConsoleColor.Blue;
-            UserInteraction.StoryDialogue(@"  |\ |    _| _  _.._ \    /_ ._| _|");
-            UserInteraction.StoryDialogue(@"  | \||_|(_|(/_(_||   \/\/(_)| |(_|");
+            UserInteraction.StoryDialogue(@"      _____   __            ______                       ___       __            ______________");
+            UserInteraction.StoryDialogue(@"      ___  | / /___  __________  /__________ ________    __ |     / /_______________  /_____  /");
+            UserInteraction.StoryDialogue(@"      __   |/ /_  / / /  ___/_  /_  _ \  __ `/_  ___/    __ | /| / /_  __ \_  ___/_  /_  __  / ");
+            UserInteraction.StoryDialogue(@"      _  /|  / / /_/ // /__ _  / /  __/ /_/ /_  /        __ |/ |/ / / /_/ /  /   _  / / /_/ /  ");
+            UserInteraction.StoryDialogue(@"      /_/ |_/  \__,_/ \___/ /_/  \___/\__,_/ /_/         ____/|__/  \____//_/    /_/  \__,_/   ");
             Console.ForegroundColor = ConsoleColor.Green;
             UserInteraction.PressEnter();
 
@@ -46,10 +49,12 @@ namespace NuclearWorld
 
             
 
-            UserInteraction.StoryDialogue(" Here comes another one! Prepare to open fire!\n Oh, you're not a raider or a mutant.\n Parter, you almost got filled with lead!\n" +
+            UserInteraction.StoryDialogue(" Here comes another one! Prepare to open fire!\n Oh, you're not a raider or a mutant.\n Partner, you almost got filled with lead!\n" +
                 " Well look-ee here. Survived the bombs, did you?\n What's your name, friend?");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             UserInteraction.StoryDialogue("(Please enter the name of your survivor:)");
-             var adventurerName = Console.ReadLine();
+            Console.ForegroundColor = ConsoleColor.Green;
+            var adventurerName = Console.ReadLine();
 
             var mainCharacter = new MainCharacter();
             {
@@ -91,11 +96,11 @@ namespace NuclearWorld
                 " We have been down in the bunker for most of our lives, so I am not familiar with the local territory.\n Only one way to find out what's out there.");
             UserInteraction.PressEnter();
 
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             UserInteraction.StoryDialogue("Now first, which way are we heading?");
-
             UserInteraction.StoryDialogue(" A: North\n B: East\n C: South\n D: West");
-
             UserInteraction.StoryDialogue("(Type 'a', 'b', 'c', or 'd')");
+            Console.ForegroundColor = ConsoleColor.Green;
 
             string currentDirection;
             do

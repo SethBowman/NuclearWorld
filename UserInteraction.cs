@@ -10,11 +10,13 @@ namespace NuclearWorld
     {
         public static string GetUserClass()
         {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("Choose your fighter class!");
             Console.WriteLine("A: Gunner");
             Console.WriteLine("B: Melee");
             Console.WriteLine("(Type 'a' or 'b')");
             return Console.ReadLine();
+            Console.ForegroundColor = ConsoleColor.Green;
         }
 
         public static void FighterClassSelection(string aNameThatDoesntMatter)
@@ -45,6 +47,7 @@ namespace NuclearWorld
 
         public static void CheckDirection(string directionChoice)
         {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             switch (directionChoice)
             {
                 case "a":
@@ -63,6 +66,7 @@ namespace NuclearWorld
                     Console.WriteLine("That is not an option. Choose again.");
                     break;
             }
+            Console.ForegroundColor = ConsoleColor.Green;
         }
 
 
