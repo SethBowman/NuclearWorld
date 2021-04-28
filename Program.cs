@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace NuclearWorld
 {
@@ -6,47 +8,12 @@ namespace NuclearWorld
     {
         static void Main(string[] args)
         {
-
-
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            UserInteraction.StoryDialogue(@"                                           Seth Bowman presents:");            
-            Console.ForegroundColor = ConsoleColor.Blue;
-            UserInteraction.StoryDialogue(@"      _____   __            ______                       ___       __            ______________");
-            UserInteraction.StoryDialogue(@"      ___  | / /___  __________  /__________ ________    __ |     / /_______________  /_____  /");
-            UserInteraction.StoryDialogue(@"      __   |/ /_  / / /  ___/_  /_  _ \  __ `/_  ___/    __ | /| / /_  __ \_  ___/_  /_  __  / ");
-            UserInteraction.StoryDialogue(@"      _  /|  / / /_/ // /__ _  / /  __/ /_/ /_  /        __ |/ |/ / / /_/ /  /   _  / / /_/ /  ");
-            UserInteraction.StoryDialogue(@"      /_/ |_/  \__,_/ \___/ /_/  \___/\__,_/ /_/         ____/|__/  \____//_/    /_/  \__,_/   ");
-            Console.ForegroundColor = ConsoleColor.Green;
+            UserInteraction.GameHeader();
             UserInteraction.PressEnter();
 
 
-
-            Console.ForegroundColor = ConsoleColor.Green;
-            UserInteraction.StoryDialogue(" Life. Life is hard.\n The Romans waged war to gather slaves and wealth.\n" +
-                " Spain built an empire from its lust for gold and territory.\n" +
-                " Hitler shaped a battered Germany into an economic superpower. Yes, indeed, life is hard.\n" +
-                " In the 21st century, war was still waged over the resources that could be acquired from winning.\n" +
-                " Only this time, the spoils of war were also its weapons: Petroleum and Uranium.\n"+
-                " For these resources, China would invade Alaska, the US would annex Canada..\n" +
-                " The European Commonwealth, which had lasted centuries,\n" +
-                " would dissolve into quarreling, bickering nation-states bent on controlling the last remaining resources on Earth.\n" +
-                " In 2052, the storm of world war had come again. In two brief hours, most of the planet was reduced to cinders.\n" +
-                " And from the ashes of nuclear devastation, a new civilization would struggle to arise.\n" +
-                " A few were able to reach the relative safety of the large underground bunkers.\n" +
-                " Your family was part of a group that entered 'Bunker 33', a mysterious government owned facility.\n" +
-                " Imprisoned safely behind the large bunker door, under a mountain of stone,\n" +
-                " a generation has lived without knowledge of the outside world.\n" +
-                " Life in the bunker is about to change.\n" +
-                " The bunker you call home has become unlivable due to the unforseen conditons of nuclear holocaust.\n" +
-                " You and your people have no choice but to search for refuge elsewhere.\n" +
-                " The elders have informed you of the discovery of a bunker that is suppoed to be located nearby,\n" +
-                " thanks to bunker records kept from before the Great War.\n" +
-                " Your journey begins as you head for the bunker..");
-
+            UserInteraction.IntroDialogue();
             UserInteraction.PressEnter();
-
-
-
             
 
             UserInteraction.StoryDialogue(" Here comes another one! Prepare to open fire!\n Oh, you're not a raider or a mutant.\n Partner, you almost got filled with lead!\n" +
@@ -60,16 +27,14 @@ namespace NuclearWorld
             {
                 mainCharacter.Name = adventurerName;
                 mainCharacter.Health = 100;
-            };
-
-            
+            };            
 
 
             UserInteraction.StoryDialogue($" Interesting name you got there, {adventurerName}. My name's Colt Peacemaker.\n" +
                 $" I'm the guardian of 'Bunker 34' here, so you'd best mind yer manners.\n" +
                 $" If you're gonna be ridin' with us you'll be needing a weapon, partner.. any preference?");
-
             UserInteraction.PressEnter();
+
 
             string fighterClass;
 
@@ -115,13 +80,12 @@ namespace NuclearWorld
 
 
             UserInteraction.StoryDialogue("Alright then, let's head out.");
-
             UserInteraction.PressEnter();
 
 
             UserInteraction.StoryDialogue("An irradiated bee stings you along the way. You have minor radiation poisoning. (-10 Health)");
-
             UserInteraction.PressEnter();
+
 
             var health = UserInteraction.Combat(mainCharacter.Health, 10);
 
@@ -186,21 +150,29 @@ namespace NuclearWorld
             UserInteraction.PressEnter();
 
 
-            UserInteraction.StoryDialogue("You eat a snack, replenishing your health.");
+            if (mainCharacter.MainInventory.Count > 0)
+            {
+                UserInteraction.StoryDialogue("You eat a snack, replenishing your health.");
+                MainCharacter.Heal(mainCharacter.Health, mainCharacter.MainInventory[0].HealValue);
+                UserInteraction.StoryDialogue($"You have eaten {mainCharacter.MainInventory[0].Name}");
+                mainCharacter.MainInventory.Remove(mainCharacter.MainInventory[0]);
+                UserInteraction.PressEnter();
 
-            MainCharacter.Heal(mainCharacter.Health, mainCharacter.MainInventory[0].HealValue);
-            UserInteraction.StoryDialogue($"You have eaten {mainCharacter.MainInventory[0].Name}");
-            mainCharacter.MainInventory.Remove(mainCharacter.MainInventory[0]);
+                UserInteraction.StoryDialogue($"Health =  90 + 10\n " +
+                   $"Health = {mainCharacter.Health}.");
+
+                UserInteraction.PressEnter();
+            }
+            else
+            {
+                UserInteraction.StoryDialogue("Your stomach growls with hunger.");
+            }
+
+
             UserInteraction.PressEnter();
-
-            UserInteraction.StoryDialogue($"Health =  90 + 10\n " +
-               $"Health = {mainCharacter.Health}.");
-
+            UserInteraction.StoryDialogue("Your journey will continue when the creator decides to add more..");
             UserInteraction.PressEnter();
-
-
-            UserInteraction.StoryDialogue("MORE TO COME SOON..");
-            UserInteraction.PressEnter();
+            UserInteraction.StoryDialogue("GAME OVER.");
 
 
 
