@@ -83,17 +83,48 @@ namespace NuclearWorld
             UserInteraction.PressEnter();
 
 
-            UserInteraction.StoryDialogue("An irradiated bee stings you along the way. You have minor radiation poisoning. (-10 Health)");
-            UserInteraction.PressEnter();
-
-
-            var health = UserInteraction.Combat(mainCharacter.Health, 10);
-
+            if (currentDirection == "a")
+            {
+                UserInteraction.StoryDialogue("An irradiated bee stings you along the way. You have minor radiation poisoning. (-10 Health)");
+                UserInteraction.PressEnter();
+            
+                var health = UserInteraction.Combat(mainCharacter.Health, 10);
             UserInteraction.StoryDialogue($"Health =  100 - 10\n " +
                 $"Health = {health}.");
-
-
             UserInteraction.PressEnter();
+            }
+            else if (currentDirection == "b")
+            {
+                UserInteraction.StoryDialogue("You fall off a ledge unexpectedly and break a leg. You are critically injured. (-70 Health)");
+                UserInteraction.PressEnter();
+
+                var health = UserInteraction.Combat(mainCharacter.Health, 70);
+                UserInteraction.StoryDialogue($"Health =  100 - 70\n " +
+                    $"Health = {health}.");
+                UserInteraction.PressEnter();
+            }
+            else if (currentDirection == "c")
+            {
+                UserInteraction.StoryDialogue("You feel good about your choice of direction.");
+                UserInteraction.PressEnter();
+            }
+            else if (currentDirection == "d")
+            {
+                var treat = new Consumables()
+                {
+                    Name = "box of stale crackers",
+                    HealValue = 5,
+                };
+
+                UserInteraction.StoryDialogue(" Walking along the road you see what appears to be some kind of packing poking out from under a car door.\n " +
+                    $"Underneat you find a {treat.Name}. Nice!");
+                UserInteraction.PressEnter();
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                UserInteraction.StoryDialogue($"The {treat.Name} added to inventory!");
+                mainCharacter.MainInventory.Add(treat);
+                UserInteraction.PressEnter();
+            }
+
 
             UserInteraction.StoryDialogue("Approaching a clearing, you see what appears to be the outline of some kind of structure.\n" +
                 "As you start to get closer, you can see that it is an old abandoned shack.\nIt doesn't doesn't look like anyone has been there in some time.\n" +
