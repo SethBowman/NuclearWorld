@@ -226,7 +226,7 @@ namespace NuclearWorld
             }
 
 
-            UserInteraction.StoryDialogue("Your journey will continue when the creator decides to add more..");
+            UserInteraction.StoryDialogue($"Congratulations! You have survived with a score of {mainCharacter.Health}");
             UserInteraction.PressEnter();
             UserInteraction.StoryDialogue("GAME OVER.");
 
