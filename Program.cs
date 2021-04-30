@@ -112,15 +112,15 @@ namespace NuclearWorld
             {
                 var treat = new Consumables()
                 {
-                    Name = "box of stale crackers",
-                    HealValue = 5,
+                    Name = "Cracker Jox",
+                    HealValue = 10,
                 };
 
-                UserInteraction.StoryDialogue(" Walking along the road you see what appears to be some kind of packing poking out from under a car door.\n " +
-                    $"Underneat you find a {treat.Name}. Nice!");
+                UserInteraction.StoryDialogue(" Walking along the road you see what appears to be some kind of packaging poking out from underneath a car door.\n " +
+                    $"Moving it aside, you find some {treat.Name}. Nice!");
                 UserInteraction.PressEnter();
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                UserInteraction.StoryDialogue($"The {treat.Name} added to inventory!");
+                UserInteraction.StoryDialogue($"{treat.Name} added to inventory.");
                 mainCharacter.MainInventory.Add(treat);
                 UserInteraction.PressEnter();
             }
@@ -147,9 +147,10 @@ namespace NuclearWorld
                                 
                 UserInteraction.StoryDialogue($"You search the abandoned shack thoroughly. In one of the kitchen cabinets you find a {snack1.Name}.");
                 UserInteraction.PressEnter();
-
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 UserInteraction.StoryDialogue($"{snack1.Name} added to inventory.");
-                
+                Console.ForegroundColor = ConsoleColor.Green;
+
             }
             else
             {
@@ -176,7 +177,26 @@ namespace NuclearWorld
 
             if (getFood)
             {
+                var beef = new Consumables()
+                {
+                    Name = "Irradiated Beef",
+                    HealValue = 10,
+                };
+
+                var saltedBeef = new Consumables()
+                {
+                    Name = "Salted Irradiated Beef",
+                    HealValue = 10,
+                };
+
                 UserInteraction.StoryDialogue("You butcher the cow, taking enough to eat now and puting the rest in salt to store for later.");
+                UserInteraction.PressEnter();
+                
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                mainCharacter.MainInventory.Add(beef);
+                mainCharacter.MainInventory.Add(saltedBeef);
+                UserInteraction.StoryDialogue($"{beef.Name} and {saltedBeef.Name} added to inventory.");
+                Console.ForegroundColor = ConsoleColor.Green;
             }
             else
             {
@@ -186,7 +206,7 @@ namespace NuclearWorld
             UserInteraction.PressEnter();
 
 
-            if (mainCharacter.MainInventory.Count > 0)
+            if (mainCharacter.MainInventory.Count >= 1)
             {
                 UserInteraction.StoryDialogue("You eat a snack, replenishing your health.");
                 MainCharacter.Heal(mainCharacter.Health, mainCharacter.MainInventory[0].HealValue);
