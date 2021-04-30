@@ -97,17 +97,23 @@ namespace NuclearWorld
 
             if (answerToQuestion == "yes")
             {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("(You have chosen yes.)");
+                Console.ForegroundColor = ConsoleColor.Green;
                 return true;
             }
             else if (answerToQuestion == "no")
             {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("(You have chosen no.)");
+                Console.ForegroundColor = ConsoleColor.Green;
                 return false;
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("That is not an option. Choose again!");
+                Console.ForegroundColor = ConsoleColor.Green;
                 return false;
             }
         }

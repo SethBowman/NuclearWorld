@@ -98,8 +98,10 @@ namespace NuclearWorld
             UserInteraction.StoryDialogue("Approaching a clearing, you see what appears to be the outline of some kind of structure.\n" +
                 "As you start to get closer, you can see that it is an old abandoned shack.\nIt doesn't doesn't look like anyone has been there in some time.\n" +
                 "Will you search it?");
-
+            
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             UserInteraction.StoryDialogue("(Type yes or no.)");
+            Console.ForegroundColor = ConsoleColor.Green;
             bool willSearch = UserInteraction.YesOrNo(Console.ReadLine());
 
             if (willSearch)
@@ -130,11 +132,14 @@ namespace NuclearWorld
             UserInteraction.StoryDialogue($"Woah, {adventurerName}! Look over there!");
 
             UserInteraction.PressEnter();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             UserInteraction.StoryDialogue("(You observe a 2-headed cow.)");
             UserInteraction.PressEnter();
 
             UserInteraction.StoryDialogue($"We are having steaks tonight! Whattaya say, {adventurerName}?\n We taking this home?");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             UserInteraction.StoryDialogue("(Type yes or no.)");
+            Console.ForegroundColor = ConsoleColor.Green;
 
             bool getFood = UserInteraction.YesOrNo(Console.ReadLine());
 
@@ -166,10 +171,10 @@ namespace NuclearWorld
             else
             {
                 UserInteraction.StoryDialogue("Your stomach growls with hunger.");
+                UserInteraction.PressEnter();
             }
 
 
-            UserInteraction.PressEnter();
             UserInteraction.StoryDialogue("Your journey will continue when the creator decides to add more..");
             UserInteraction.PressEnter();
             UserInteraction.StoryDialogue("GAME OVER.");
