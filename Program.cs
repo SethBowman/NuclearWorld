@@ -45,8 +45,33 @@ namespace NuclearWorld
                 UserInteraction.FighterClassSelection(fighterClass);
 
             } while (fighterClass != "a" && fighterClass != "b");
-
             UserInteraction.PressEnter();
+
+
+            if (fighterClass == "a")
+            {
+                var gun = new Weapon()
+                {
+                    Name = "Smith & Wesson Model 351PD",
+                    DamageValue = 30,
+                };
+                
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                UserInteraction.StoryDialogue($"{gun.Name} added to inventory.");
+            }
+            else if (fighterClass == "b")
+            {
+                var sword = new Weapon()
+                {
+                    Name = "Katana",
+                    DamageValue = 30,
+                };
+
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                UserInteraction.StoryDialogue($"{sword.Name} added to inventory.");
+            }
+            UserInteraction.PressEnter();
+
 
             UserInteraction.StoryDialogue(" To be quite honest, friend, we could use someone with some outside experience.\n" +
                 " There's a whole nasty world out there and most folks ain't the friendly type.\n" +
