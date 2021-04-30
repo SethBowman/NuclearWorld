@@ -177,9 +177,13 @@ namespace NuclearWorld
                 Console.ForegroundColor = ConsoleColor.Green;
 
             }
-            else
+            if else
             {
                 UserInteraction.StoryDialogue("Realizing that there may be danger inside, you decide to keep traveling.");
+            }
+            else
+            {
+                UserInteraction.StoryDialogue("That is not an option. Try again.");
             }
 
 
