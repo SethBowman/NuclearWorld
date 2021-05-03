@@ -186,7 +186,7 @@ namespace NuclearWorld
 
             if (MainCharacter.Health < 50 && mainCharacter.MainInventory.Count >= 1)
             {
-                UserInteraction.StoryDialogue("Would you like to eat a snack and heal?");
+                UserInteraction.StoryDialogue("Would you like to use a consumable and heal?");
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 UserInteraction.StoryDialogue("(Type yes or no.)");
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -194,10 +194,10 @@ namespace NuclearWorld
 
                 if (replenish)
                 {
-                    UserInteraction.StoryDialogue(" You eat a snack, replenishing your health.");
+                    UserInteraction.StoryDialogue(" You use a consumable, replenishing your health.");
                     MainCharacter.Heal(mainCharacter.MainInventory[0].HealValue);
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    UserInteraction.StoryDialogue($"You have eaten {mainCharacter.MainInventory[0].Name}");
+                    UserInteraction.StoryDialogue($"You have consumed {mainCharacter.MainInventory[0].Name}");
                     mainCharacter.MainInventory.Remove(mainCharacter.MainInventory[0]);
                     Console.ForegroundColor = ConsoleColor.Green;
                     UserInteraction.StoryDialogue($" Your Health = {MainCharacter.Health}");
@@ -379,10 +379,10 @@ namespace NuclearWorld
 
             if (mainCharacter.MainInventory.Count >= 1)
             {
-                UserInteraction.StoryDialogue(" You eat a snack, replenishing your health.");
+                UserInteraction.StoryDialogue(" You use a consumable, replenishing your health.");
                 MainCharacter.Heal(mainCharacter.MainInventory[0].HealValue);
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                UserInteraction.StoryDialogue($"You have eaten {mainCharacter.MainInventory[0].Name}");
+                UserInteraction.StoryDialogue($"You have consumed {mainCharacter.MainInventory[0].Name}");
                 mainCharacter.MainInventory.Remove(mainCharacter.MainInventory[0]);
                 UserInteraction.PressEnter();
 
