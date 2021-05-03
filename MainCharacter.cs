@@ -12,8 +12,19 @@ namespace NuclearWorld
         public static int Health { get; set; }
         public string FighterClass { get; set; }
         public List<Item> MainInventory { get; set; } = new List<Item>();
+        public static bool IsAlive { get; set; }
 
 
+        public static bool LifeCheck()
+        {
+            if (Health <= 0)
+            {
+                return false;
+            }
+            else 
+                return true;
+            
+        }
 
         public static void TakeDamage(int damage)
         {

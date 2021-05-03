@@ -23,6 +23,7 @@ namespace NuclearWorld
             Console.ForegroundColor = ConsoleColor.Green;
             var adventurerName = Console.ReadLine();
 
+            Weapon.DamageValue = 30;
             var mainCharacter = new MainCharacter();
             {
                 mainCharacter.Name = adventurerName;
@@ -53,7 +54,7 @@ namespace NuclearWorld
                 var gun = new Weapon()
                 {
                     Name = "Smith & Wesson Model 351PD",
-                    DamageValue = 30,
+                    
                 };
                 
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -64,7 +65,7 @@ namespace NuclearWorld
                 var sword = new Weapon()
                 {
                     Name = "Katana",
-                    DamageValue = 30,
+                   
                 };
 
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -104,60 +105,61 @@ namespace NuclearWorld
 
 
 
-            UserInteraction.StoryDialogue("Alright then, let's head out.");
+            UserInteraction.StoryDialogue(" Alright then, let's head out.");
             UserInteraction.PressEnter();
 
 
             if (currentDirection == "a")
             {
-                UserInteraction.StoryDialogue("An irradiated bee stings you along the way. You have minor radiation poisoning. (-10 Health)");
+                UserInteraction.StoryDialogue(" An irradiated bee stings you along the way. You have minor radiation poisoning. (-10 Health)");
                 UserInteraction.PressEnter();
             
                 MainCharacter.TakeDamage(10);
-            UserInteraction.StoryDialogue($"Health =  100 - 10\n " +
-                $"Health = {MainCharacter.Health}.");
+            UserInteraction.StoryDialogue($" Health = {MainCharacter.Health} - 10\n" +
+                $" Health = {MainCharacter.Health}.");
             UserInteraction.PressEnter();
             }
             else if (currentDirection == "b")
             {
-                UserInteraction.StoryDialogue("You fall off a ledge unexpectedly and break a leg. You are critically injured. (-70 Health)");
+                UserInteraction.StoryDialogue(" You fall off a ledge unexpectedly and break a leg. You are critically injured. (-70 Health)");
                 UserInteraction.PressEnter();
 
                 MainCharacter.TakeDamage(70);
-                UserInteraction.StoryDialogue($"Health =  100 - 70\n " +
-                    $"Health = {MainCharacter.Health}.");
+                UserInteraction.StoryDialogue($" Health = {MainCharacter.Health} - 70\n" +
+                    $" Health = {MainCharacter.Health}.");
                 UserInteraction.PressEnter();
             }
             else if (currentDirection == "c")
             {
-                UserInteraction.StoryDialogue("You feel good about your choice of direction.");
+                UserInteraction.StoryDialogue(" You feel good about your choice of direction.");
                 UserInteraction.PressEnter();
             }
             else if (currentDirection == "d")
             {
-                var treat = new Consumables()
+                var drink = new Consumables()
                 {
-                    Name = "Cracker Jox",
+                    Name = "Bottle of Dasun Water",
                     HealValue = 10,
                 };
 
-                UserInteraction.StoryDialogue(" Walking along the road you see what appears to be some kind of packaging poking out from underneath a car door.\n " +
-                    $"Moving it aside, you find some {treat.Name}. Nice!");
+                UserInteraction.StoryDialogue(" Walking along the road you see what appears to be some kind of packaging poking out from underneath a car door. \n " +
+                    $"Moving it aside, you find a {drink.Name}. Nice!");
                 UserInteraction.PressEnter();
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                UserInteraction.StoryDialogue($"{treat.Name} added to inventory.");
-                mainCharacter.MainInventory.Add(treat);
+                UserInteraction.StoryDialogue($"{drink.Name} added to inventory.");
+                mainCharacter.MainInventory.Add(drink);
                 UserInteraction.PressEnter();
             }
 
 
-            UserInteraction.StoryDialogue("Approaching a clearing, you see what appears to be the outline of some kind of structure.\n" +
-                "As you start to get closer, you can see that it is an old abandoned shack.\nIt doesn't doesn't look like anyone has been there in some time.\n" +
-                "Will you search it?");
+            UserInteraction.StoryDialogue(" Approaching a clearing, you see what appears to be the outline of some kind of structure.\n" +
+                " As you start to get closer, you can see that it is an old abandoned shack.\n It doesn't doesn't look like anyone has been there in some time.\n" +
+                " Will you search it?");
             
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             UserInteraction.StoryDialogue("(Type yes or no.)");
             Console.ForegroundColor = ConsoleColor.Green;
+            
             bool willSearch = UserInteraction.YesOrNo(Console.ReadLine().ToLower());
 
             if (willSearch)
@@ -170,7 +172,7 @@ namespace NuclearWorld
 
                 mainCharacter.MainInventory.Add(snack1);
                                 
-                UserInteraction.StoryDialogue($"You search the abandoned shack thoroughly. In one of the kitchen cabinets you find a {snack1.Name}.");
+                UserInteraction.StoryDialogue($" You search the abandoned shack thoroughly. In one of the kitchen cabinets you find a {snack1.Name}.");
                 UserInteraction.PressEnter();
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 UserInteraction.StoryDialogue($"{snack1.Name} added to inventory.");
@@ -179,81 +181,200 @@ namespace NuclearWorld
             }
             else
             {
-                UserInteraction.StoryDialogue("Realizing that there may be danger inside, you decide to keep traveling.");
+                UserInteraction.StoryDialogue(" Realizing that there may be danger inside, you decide to keep traveling.");
             }
 
 
             UserInteraction.PressEnter();
 
+            var monster = new Enemy()
+            {
+                Name = "Death Claw",
+                AttackDamage = 70,
+            };
 
-            UserInteraction.StoryDialogue($"Woah, {adventurerName}! Look over there!");
 
-            UserInteraction.PressEnter();
+
+            var badGuy = new Enemy()
+            {
+                Name = "Raider Gunner",
+                AttackDamage = 30,
+            };
+
+            var otherBadGuy = new Enemy()
+            {
+                Name = "Super Mutant",
+                AttackDamage = 50,
+            };
+
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            UserInteraction.StoryDialogue("(You observe a 2-headed cow.)");
-            UserInteraction.PressEnter();
-
-            UserInteraction.StoryDialogue($"We are having steaks tonight! Whattaya say, {adventurerName}?\n We taking this home?");
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            UserInteraction.StoryDialogue("(Type yes or no.)");
+            UserInteraction.StoryDialogue("You come to a crossroads.. which direction will you go?");
+            UserInteraction.StoryDialogue(" A: North\n B: East\n C: South\n D: West");
+            UserInteraction.StoryDialogue("(Type 'a', 'b', 'c', or 'd')");
             Console.ForegroundColor = ConsoleColor.Green;
 
-            bool getFood = UserInteraction.YesOrNo(Console.ReadLine().ToLower());
 
-            if (getFood)
+            do
             {
-                var beef = new Consumables()
-                {
-                    Name = "Irradiated Beef",
-                    HealValue = 10,
-                };
+                currentDirection = Console.ReadLine().ToLower();
 
-                var saltedBeef = new Consumables()
-                {
-                    Name = "Salted Irradiated Beef",
-                    HealValue = 10,
-                };
+                UserInteraction.CheckDirection(currentDirection);
 
-                UserInteraction.StoryDialogue("You butcher the cow, taking enough to eat now and puting the rest in salt to store for later.");
-                UserInteraction.PressEnter();
+            } while (currentDirection != "a" && currentDirection != "b" && currentDirection != "c" && currentDirection != "d");
+
+            if(currentDirection == "a")
+            {
+                UserInteraction.StoryDialogue($" Under a bridge, you fall victim a trap set by a {badGuy.Name}.. Will you fight or run?");
                 
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                mainCharacter.MainInventory.Add(beef);
-                mainCharacter.MainInventory.Add(saltedBeef);
-                UserInteraction.StoryDialogue($"{beef.Name} and {saltedBeef.Name} added to inventory.");
-                Console.ForegroundColor = ConsoleColor.Green;
+                UserInteraction.StoryDialogue($"(Type 'yes' to fight or 'no' to run.)");
+                
+
+                bool fightOrRun = UserInteraction.YesOrNo(Console.ReadLine().ToLower());
+
+                if (fightOrRun)
+                {
+                    UserInteraction.StoryDialogue($" The {badGuy.Name} opens fire at you, hiting you in the side.\n The warm sting from the bullet sends a chill down your spine.");
+                    Combat.Fighting(badGuy.AttackDamage, MainCharacter.Health);
+                    UserInteraction.GameOver();
+                    UserInteraction.StoryDialogue($" Health - {badGuy.AttackDamage}\n Health = {MainCharacter.Health}");
+                    UserInteraction.PressEnter();
+                    if (fighterClass == "a")
+                    {
+                        UserInteraction.StoryDialogue($" You return fire at the enemy, hitting him directly in the head and killing him instantly.");
+                        Combat.Fighting(Weapon.DamageValue, Enemy.Health);
+                        UserInteraction.StoryDialogue($" {badGuy.Name} Health - {Weapon.DamageValue}\n Health = {Enemy.Health}");
+                    }
+                    else if (fighterClass == "b")
+                    {
+                        UserInteraction.StoryDialogue($" You take your chance while the {badGuy.Name} is reloading.. You charge him full force.\nSwinging with all your might, you decapitate him.");
+                        Combat.Fighting(Weapon.DamageValue, Enemy.Health);
+                        UserInteraction.StoryDialogue($" {badGuy.Name} Health - {Weapon.DamageValue}\n Health = {Enemy.Health}");
+                    }
+                }
+                else
+                {
+                    UserInteraction.StoryDialogue(" You turn and run with your tail between your legs.");
+                }
+                UserInteraction.PressEnter();
             }
-            else
+            else if (currentDirection == "b")
             {
-                UserInteraction.StoryDialogue("You decide not to kill the cow. I mean who needs to eat, right?\n You're only starving.");
+                UserInteraction.StoryDialogue($" Woah, {adventurerName}! Look over there!");
+
+                UserInteraction.PressEnter();
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                UserInteraction.StoryDialogue("(You observe a 2-headed cow.)");
+                UserInteraction.PressEnter();
+
+                UserInteraction.StoryDialogue($" We are having steaks tonight! Whattaya say, {adventurerName}?\n We taking this home?");
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                UserInteraction.StoryDialogue("(Type yes or no.)");
+                Console.ForegroundColor = ConsoleColor.Green;
+
+                bool getFood = UserInteraction.YesOrNo(Console.ReadLine().ToLower());
+
+                if (getFood)
+                {
+                    var beef = new Consumables()
+                    {
+                        Name = "Irradiated Beef",
+                        HealValue = 10,
+                    };
+
+                    var saltedBeef = new Consumables()
+                    {
+                        Name = "Salted Irradiated Beef",
+                        HealValue = 10,
+                    };
+
+                    UserInteraction.StoryDialogue(" You butcher the cow, taking enough to eat now and puting the rest in salt to store for later.");
+                    UserInteraction.PressEnter();
+
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    mainCharacter.MainInventory.Add(beef);
+                    mainCharacter.MainInventory.Add(saltedBeef);
+                    UserInteraction.StoryDialogue($"{beef.Name} and {saltedBeef.Name} added to inventory.");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                }
+                else
+                {
+                    UserInteraction.StoryDialogue(" You decide not to kill the cow. I mean who needs to eat, right?\n You're only starving.");
+                }
+                UserInteraction.PressEnter();
+            }
+            else if (currentDirection == "c")
+            {
+                UserInteraction.StoryDialogue($" Walking along the road a {monster.Name} attacks you.. such bad luck..");
+                Combat.Fighting(monster.AttackDamage, MainCharacter.Health);
+                UserInteraction.StoryDialogue($" Health - {monster.AttackDamage}\n Health = {MainCharacter.Health}");
+                UserInteraction.GameOver();
+                
+                UserInteraction.StoryDialogue($" You manage to crawl under a car and bandage your wounds. You wait for a few hours until the {monster.Name} leaves.");
+                UserInteraction.PressEnter();
+            }
+            else if (currentDirection == "d")
+            {
+                UserInteraction.StoryDialogue($" Looking to the horizon.. you can see a {otherBadGuy.Name} charging at you.. Will you fight or run?");
+
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                UserInteraction.StoryDialogue($"(Type 'yes' to fight or 'no' to run.)");
+
+                bool fightOrRun = UserInteraction.YesOrNo(Console.ReadLine().ToLower());
+
+                if (fightOrRun)
+                {
+                    UserInteraction.StoryDialogue($" The {otherBadGuy.Name} opens fire at you, hitting you multiple times in your legs.\n The pain is agonizing");
+                    Combat.Fighting(otherBadGuy.AttackDamage, MainCharacter.Health);
+                    UserInteraction.GameOver();
+                    UserInteraction.StoryDialogue($" Health - {otherBadGuy.AttackDamage}\n Health = {MainCharacter.Health}");
+                    UserInteraction.PressEnter();
+                    if (fighterClass == "a")
+                    {
+                        UserInteraction.StoryDialogue($" You return fire at the enemy, your bullets do some damage.");
+                        Combat.Fighting(Weapon.DamageValue, Enemy.Health);
+                        UserInteraction.StoryDialogue($" {badGuy.Name} Health - {Weapon.DamageValue}\n Health = {Enemy.Health}");
+                    }
+                    else if (fighterClass == "b")
+                    {
+                        UserInteraction.StoryDialogue($" You take your chance while the {badGuy.Name} is reloading.. You charge him full force.\n You cut into his chest deeply doing some damage.");
+                        Combat.Fighting(Weapon.DamageValue, Enemy.Health);
+                        UserInteraction.StoryDialogue($" {badGuy.Name} Health - {Weapon.DamageValue}\n Health = {Enemy.Health}");
+                    }
+                    UserInteraction.StoryDialogue($"The {otherBadGuy.Name} flees in pain. You live to fight another day.");
+                }
+                else
+                {
+                    UserInteraction.StoryDialogue(" You turn and run with your tail between your legs.");
+                }
+                UserInteraction.PressEnter();
             }
 
-            UserInteraction.PressEnter();
 
 
             if (mainCharacter.MainInventory.Count >= 1)
             {
-                UserInteraction.StoryDialogue("You eat a snack, replenishing your health.");
+                UserInteraction.StoryDialogue(" You eat a snack, replenishing your health.");
                 MainCharacter.Heal(MainCharacter.Health, mainCharacter.MainInventory[0].HealValue);
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 UserInteraction.StoryDialogue($"You have eaten {mainCharacter.MainInventory[0].Name}");
                 mainCharacter.MainInventory.Remove(mainCharacter.MainInventory[0]);
                 UserInteraction.PressEnter();
 
-                UserInteraction.StoryDialogue($"Health =  90 + 10\n " +
+                UserInteraction.StoryDialogue($" Health = {MainCharacter.Health} + 10\n " +
                    $"Health = {MainCharacter.Health}.");
 
                 UserInteraction.PressEnter();
             }
             else
             {
-                UserInteraction.StoryDialogue("Your stomach growls with hunger.");
+                UserInteraction.StoryDialogue(" Your stomach growls with hunger.");
                 UserInteraction.PressEnter();
             }
 
-
-            UserInteraction.StoryDialogue($"Congratulations! You have survived with a score of {MainCharacter.Health}");
+            UserInteraction.StoryDialogue($" Congratulations! You have survived with a score of {MainCharacter.Health}");
             UserInteraction.PressEnter();
-            UserInteraction.StoryDialogue("GAME OVER.");
+            UserInteraction.StoryDialogue(" GAME OVER.");
 
 
 
