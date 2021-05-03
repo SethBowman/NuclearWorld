@@ -235,7 +235,7 @@ namespace NuclearWorld
                 if (fightOrRun)
                 {
                     UserInteraction.StoryDialogue($" The {badGuy.Name} opens fire at you, hiting you in the side.\n The warm sting from the bullet sends a chill down your spine.");
-                    Combat.Fighting(badGuy.AttackDamage, MainCharacter.Health);
+                    MainCharacter.TakeDamage(badGuy.AttackDamage);
                     UserInteraction.GameOver();
                     UserInteraction.StoryDialogue($" Health - {badGuy.AttackDamage}\n Health = {MainCharacter.Health}");
                     UserInteraction.PressEnter();
@@ -306,7 +306,7 @@ namespace NuclearWorld
             else if (currentDirection == "c")
             {
                 UserInteraction.StoryDialogue($" Walking along the road a {monster.Name} attacks you.. such bad luck..");
-                Combat.Fighting(monster.AttackDamage, MainCharacter.Health);
+                MainCharacter.TakeDamage(monster.AttackDamage);
                 UserInteraction.StoryDialogue($" Health - {monster.AttackDamage}\n Health = {MainCharacter.Health}");
                 UserInteraction.GameOver();
                 
@@ -324,24 +324,24 @@ namespace NuclearWorld
 
                 if (fightOrRun)
                 {
-                    UserInteraction.StoryDialogue($" The {otherBadGuy.Name} opens fire at you, hitting you multiple times in your legs.\n The pain is agonizing");
-                    Combat.Fighting(otherBadGuy.AttackDamage, MainCharacter.Health);
+                    UserInteraction.StoryDialogue($" The {otherBadGuy.Name} opens fire at you, hitting you multiple times in your legs.\n The pain is agonizing.");
+                    MainCharacter.TakeDamage(otherBadGuy.AttackDamage);
                     UserInteraction.GameOver();
                     UserInteraction.StoryDialogue($" Health - {otherBadGuy.AttackDamage}\n Health = {MainCharacter.Health}");
                     UserInteraction.PressEnter();
                     if (fighterClass == "a")
                     {
-                        UserInteraction.StoryDialogue($" You return fire at the enemy, your bullets do some damage.");
+                        UserInteraction.StoryDialogue($" You return fire at the {otherBadGuy.Name}.. your bullets pierce his skull, fatally wounding him.");
                         Combat.Fighting(Weapon.DamageValue, Enemy.Health);
-                        UserInteraction.StoryDialogue($" {badGuy.Name} Health - {Weapon.DamageValue}\n Health = {Enemy.Health}");
+                        UserInteraction.StoryDialogue($" {otherBadGuy.Name} Health - {Weapon.DamageValue}\n Health = {Enemy.Health}");
                     }
                     else if (fighterClass == "b")
                     {
-                        UserInteraction.StoryDialogue($" You take your chance while the {badGuy.Name} is reloading.. You charge him full force.\n You cut into his chest deeply doing some damage.");
+                        UserInteraction.StoryDialogue($" You take your chance while the {otherBadGuy.Name} is reloading.. You charge him full force.\n You cut into his chest deeply, fatally wounding him.");
                         Combat.Fighting(Weapon.DamageValue, Enemy.Health);
-                        UserInteraction.StoryDialogue($" {badGuy.Name} Health - {Weapon.DamageValue}\n Health = {Enemy.Health}");
+                        UserInteraction.StoryDialogue($" {otherBadGuy.Name} Health - {Weapon.DamageValue}\n Health = {Enemy.Health}");
                     }
-                    UserInteraction.StoryDialogue($"The {otherBadGuy.Name} flees in pain. You live to fight another day.");
+                    UserInteraction.StoryDialogue($" You leave the {otherBadGuy.Name} to bleed out and perish.");
                 }
                 else
                 {
