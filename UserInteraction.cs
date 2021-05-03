@@ -68,13 +68,7 @@ namespace NuclearWorld
                     break;
             }
             Console.ForegroundColor = ConsoleColor.Green;
-        }
-
-
-
-
-
-       
+        }       
 
 
 
@@ -84,7 +78,7 @@ namespace NuclearWorld
             {
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("That is not an option. Choose again!");
-                answerToQuestion = Console.ReadLine();
+                answerToQuestion = Console.ReadLine().ToLower();
 
             }
         }
@@ -160,7 +154,16 @@ namespace NuclearWorld
                 " Your journey begins as you head for the bunker..");
         }
 
-
+        public static void GameOver()
+        {
+            if (MainCharacter.LifeCheck() == false)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine(" You have died in the wasteland.\n Your quest ends.\n Good luck next time!");
+                Environment.Exit(0);
+            }
+            
+        }
 
     }
 

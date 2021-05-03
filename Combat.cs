@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace NuclearWorld
 {
-    public class Weapon : Item
+    public class Combat
     {
-        public static int DamageValue { get; set; }
-        
+        public static int Fighting(int attack, int health)
+        {
+            return attack - health; 
+        }
+
     }
 }
