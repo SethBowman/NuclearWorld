@@ -19,10 +19,10 @@ namespace NuclearWorld
         {
             if (Health <= 0)
             {
-                return false;
+                return IsAlive = false;
             }
             else 
-                return true;
+                return IsAlive = true;
             
         }
 
@@ -42,15 +42,15 @@ namespace NuclearWorld
         }
 
 
-        public static int Heal(int health, int heals)
+        public static void Heal(int heals)
         {
-            if (heals > health)
+            if (heals > Health)
             {
-                return 100;
+                Health = 100;
             }
             else
             {
-                return health + heals;
+                Health += heals;
             }
         }
 

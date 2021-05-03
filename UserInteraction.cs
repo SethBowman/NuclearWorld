@@ -159,7 +159,9 @@ namespace NuclearWorld
             if (MainCharacter.LifeCheck() == false)
             {
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine(" You have died in the wasteland.\n Your quest ends.\n Good luck next time!");
+                Console.WriteLine(" You have died in the wasteland.\n Better luck next time!");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(" (GAME OVER.)");
                 Environment.Exit(0);
             }
             

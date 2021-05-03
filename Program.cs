@@ -115,8 +115,7 @@ namespace NuclearWorld
                 UserInteraction.PressEnter();
             
                 MainCharacter.TakeDamage(10);
-            UserInteraction.StoryDialogue($" Health = {MainCharacter.Health} - 10\n" +
-                $" Health = {MainCharacter.Health}.");
+            UserInteraction.StoryDialogue($" Health - 10\n Your Health = {MainCharacter.Health}");
             UserInteraction.PressEnter();
             }
             else if (currentDirection == "b")
@@ -125,8 +124,7 @@ namespace NuclearWorld
                 UserInteraction.PressEnter();
 
                 MainCharacter.TakeDamage(70);
-                UserInteraction.StoryDialogue($" Health = {MainCharacter.Health} - 70\n" +
-                    $" Health = {MainCharacter.Health}.");
+                UserInteraction.StoryDialogue($" Health - 70\n Your Health = {MainCharacter.Health}");
                 UserInteraction.PressEnter();
             }
             else if (currentDirection == "c")
@@ -167,7 +165,7 @@ namespace NuclearWorld
                 Item snack1 = new Consumables()
                 {
                     Name = "Twonkies Snack Cake",
-                    HealValue = 10
+                    HealValue = 30
                 };
 
                 mainCharacter.MainInventory.Add(snack1);
@@ -183,9 +181,36 @@ namespace NuclearWorld
             {
                 UserInteraction.StoryDialogue(" Realizing that there may be danger inside, you decide to keep traveling.");
             }
-
-
             UserInteraction.PressEnter();
+
+
+            if (MainCharacter.Health < 50 && mainCharacter.MainInventory.Count >= 1)
+            {
+                UserInteraction.StoryDialogue("Would you like to eat a snack and heal?");
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                UserInteraction.StoryDialogue("(Type yes or no.)");
+                Console.ForegroundColor = ConsoleColor.Green;
+                var replenish = UserInteraction.YesOrNo(Console.ReadLine().ToLower());
+
+                if (replenish)
+                {
+                    UserInteraction.StoryDialogue(" You eat a snack, replenishing your health.");
+                    MainCharacter.Heal(mainCharacter.MainInventory[0].HealValue);
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    UserInteraction.StoryDialogue($"You have eaten {mainCharacter.MainInventory[0].Name}");
+                    mainCharacter.MainInventory.Remove(mainCharacter.MainInventory[0]);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    UserInteraction.StoryDialogue($" Your Health = {MainCharacter.Health}");
+                    UserInteraction.PressEnter();
+                }
+                else
+                {
+                    UserInteraction.StoryDialogue("You continue on your journey..");
+                    UserInteraction.PressEnter();
+                }
+
+            }
+
 
             var monster = new Enemy()
             {
@@ -237,7 +262,7 @@ namespace NuclearWorld
                     UserInteraction.StoryDialogue($" The {badGuy.Name} opens fire at you, hiting you in the side.\n The warm sting from the bullet sends a chill down your spine.");
                     MainCharacter.TakeDamage(badGuy.AttackDamage);
                     UserInteraction.GameOver();
-                    UserInteraction.StoryDialogue($" Health - {badGuy.AttackDamage}\n Health = {MainCharacter.Health}");
+                    UserInteraction.StoryDialogue($" Health - {badGuy.AttackDamage}\n Your Health = {MainCharacter.Health}");
                     UserInteraction.PressEnter();
                     if (fighterClass == "a")
                     {
@@ -307,7 +332,7 @@ namespace NuclearWorld
             {
                 UserInteraction.StoryDialogue($" Walking along the road a {monster.Name} attacks you.. such bad luck..");
                 MainCharacter.TakeDamage(monster.AttackDamage);
-                UserInteraction.StoryDialogue($" Health - {monster.AttackDamage}\n Health = {MainCharacter.Health}");
+                UserInteraction.StoryDialogue($" Health - {monster.AttackDamage}\n Your Health = {MainCharacter.Health}");
                 UserInteraction.GameOver();
                 
                 UserInteraction.StoryDialogue($" You manage to crawl under a car and bandage your wounds. You wait for a few hours until the {monster.Name} leaves.");
@@ -327,7 +352,7 @@ namespace NuclearWorld
                     UserInteraction.StoryDialogue($" The {otherBadGuy.Name} opens fire at you, hitting you multiple times in your legs.\n The pain is agonizing.");
                     MainCharacter.TakeDamage(otherBadGuy.AttackDamage);
                     UserInteraction.GameOver();
-                    UserInteraction.StoryDialogue($" Health - {otherBadGuy.AttackDamage}\n Health = {MainCharacter.Health}");
+                    UserInteraction.StoryDialogue($" Health - {otherBadGuy.AttackDamage}\n Your Health = {MainCharacter.Health}");
                     UserInteraction.PressEnter();
                     if (fighterClass == "a")
                     {
@@ -355,7 +380,7 @@ namespace NuclearWorld
             if (mainCharacter.MainInventory.Count >= 1)
             {
                 UserInteraction.StoryDialogue(" You eat a snack, replenishing your health.");
-                MainCharacter.Heal(MainCharacter.Health, mainCharacter.MainInventory[0].HealValue);
+                MainCharacter.Heal(mainCharacter.MainInventory[0].HealValue);
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 UserInteraction.StoryDialogue($"You have eaten {mainCharacter.MainInventory[0].Name}");
                 mainCharacter.MainInventory.Remove(mainCharacter.MainInventory[0]);
