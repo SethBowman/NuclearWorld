@@ -41,6 +41,7 @@ namespace NuclearWorld
             Console.WriteLine("(Press ENTER to continue.)");
             Console.ReadKey();
             Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine();
         }
 
 
@@ -73,20 +74,7 @@ namespace NuclearWorld
 
 
 
-        public static int Combat(int health, int damage)
-        {
-
-            if (damage > health)
-            {
-                return 0;
-            }
-            else
-            { 
-                return health - damage;
-            }
-            
-
-        }
+       
 
 
 

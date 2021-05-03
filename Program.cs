@@ -26,7 +26,7 @@ namespace NuclearWorld
             var mainCharacter = new MainCharacter();
             {
                 mainCharacter.Name = adventurerName;
-                mainCharacter.Health = 100;
+                MainCharacter.Health = 100;
             };            
 
 
@@ -95,7 +95,7 @@ namespace NuclearWorld
             string currentDirection;
             do
             {
-                currentDirection = Console.ReadLine();
+                currentDirection = Console.ReadLine().ToLower();
 
                 UserInteraction.CheckDirection(currentDirection);
 
@@ -113,9 +113,9 @@ namespace NuclearWorld
                 UserInteraction.StoryDialogue("An irradiated bee stings you along the way. You have minor radiation poisoning. (-10 Health)");
                 UserInteraction.PressEnter();
             
-                var health = UserInteraction.Combat(mainCharacter.Health, 10);
+                MainCharacter.TakeDamage(10);
             UserInteraction.StoryDialogue($"Health =  100 - 10\n " +
-                $"Health = {health}.");
+                $"Health = {MainCharacter.Health}.");
             UserInteraction.PressEnter();
             }
             else if (currentDirection == "b")
@@ -123,9 +123,9 @@ namespace NuclearWorld
                 UserInteraction.StoryDialogue("You fall off a ledge unexpectedly and break a leg. You are critically injured. (-70 Health)");
                 UserInteraction.PressEnter();
 
-                var health = UserInteraction.Combat(mainCharacter.Health, 70);
+                MainCharacter.TakeDamage(70);
                 UserInteraction.StoryDialogue($"Health =  100 - 70\n " +
-                    $"Health = {health}.");
+                    $"Health = {MainCharacter.Health}.");
                 UserInteraction.PressEnter();
             }
             else if (currentDirection == "c")
@@ -158,7 +158,7 @@ namespace NuclearWorld
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             UserInteraction.StoryDialogue("(Type yes or no.)");
             Console.ForegroundColor = ConsoleColor.Green;
-            bool willSearch = UserInteraction.YesOrNo(Console.ReadLine());
+            bool willSearch = UserInteraction.YesOrNo(Console.ReadLine().ToLower());
 
             if (willSearch)
             {
@@ -198,7 +198,7 @@ namespace NuclearWorld
             UserInteraction.StoryDialogue("(Type yes or no.)");
             Console.ForegroundColor = ConsoleColor.Green;
 
-            bool getFood = UserInteraction.YesOrNo(Console.ReadLine());
+            bool getFood = UserInteraction.YesOrNo(Console.ReadLine().ToLower());
 
             if (getFood)
             {
@@ -234,13 +234,13 @@ namespace NuclearWorld
             if (mainCharacter.MainInventory.Count >= 1)
             {
                 UserInteraction.StoryDialogue("You eat a snack, replenishing your health.");
-                MainCharacter.Heal(mainCharacter.Health, mainCharacter.MainInventory[0].HealValue);
+                MainCharacter.Heal(MainCharacter.Health, mainCharacter.MainInventory[0].HealValue);
                 UserInteraction.StoryDialogue($"You have eaten {mainCharacter.MainInventory[0].Name}");
                 mainCharacter.MainInventory.Remove(mainCharacter.MainInventory[0]);
                 UserInteraction.PressEnter();
 
                 UserInteraction.StoryDialogue($"Health =  90 + 10\n " +
-                   $"Health = {mainCharacter.Health}.");
+                   $"Health = {MainCharacter.Health}.");
 
                 UserInteraction.PressEnter();
             }
@@ -251,7 +251,7 @@ namespace NuclearWorld
             }
 
 
-            UserInteraction.StoryDialogue($"Congratulations! You have survived with a score of {mainCharacter.Health}");
+            UserInteraction.StoryDialogue($"Congratulations! You have survived with a score of {MainCharacter.Health}");
             UserInteraction.PressEnter();
             UserInteraction.StoryDialogue("GAME OVER.");
 

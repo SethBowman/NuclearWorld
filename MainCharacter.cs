@@ -9,13 +9,26 @@ namespace NuclearWorld
     public class MainCharacter
     {
         public string Name { get; set; }
-        public int Health { get; set; }
+        public static int Health { get; set; }
         public string FighterClass { get; set; }
         public List<Item> MainInventory { get; set; } = new List<Item>();
 
 
 
+        public static void TakeDamage(int damage)
+        {
 
+            if (damage > Health )
+            {
+                Health = 0;
+            }
+            else
+            {
+                Health -= damage;
+            }
+
+
+        }
 
 
         public static int Heal(int health, int heals)
