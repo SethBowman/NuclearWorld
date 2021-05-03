@@ -15,7 +15,7 @@ namespace NuclearWorld
             Console.WriteLine("A: Gunner");
             Console.WriteLine("B: Melee");
             Console.WriteLine("(Type 'a' or 'b')");
-            return Console.ReadLine();
+            return Console.ReadLine().ToLower();
             Console.ForegroundColor = ConsoleColor.Green;
         }
 
@@ -90,10 +90,21 @@ namespace NuclearWorld
 
 
 
+        private static void CheckUserInput(ref string answerToQuestion)
+        {
+            while (answerToQuestion != "yes" && answerToQuestion != "no")
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("That is not an option. Choose again!");
+                answerToQuestion = Console.ReadLine();
+
+            }
+        }
+
 
         public static bool YesOrNo(string answerToQuestion)
         {
-                      
+            CheckUserInput(ref answerToQuestion);
 
             if (answerToQuestion == "yes")
             {
@@ -102,20 +113,14 @@ namespace NuclearWorld
                 Console.ForegroundColor = ConsoleColor.Green;
                 return true;
             }
-            else if (answerToQuestion == "no")
+            else
             {
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("(You have chosen no.)");
                 Console.ForegroundColor = ConsoleColor.Green;
                 return false;
             }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("That is not an option. Choose again!");
-                Console.ForegroundColor = ConsoleColor.Green;
-                return false;
-            }
+
         }
 
 

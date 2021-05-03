@@ -160,7 +160,7 @@ namespace NuclearWorld
             Console.ForegroundColor = ConsoleColor.Green;
             bool willSearch = UserInteraction.YesOrNo(Console.ReadLine());
 
-            if (willSearch == true)
+            if (willSearch)
             {
                 Item snack1 = new Consumables()
                 {
@@ -177,13 +177,9 @@ namespace NuclearWorld
                 Console.ForegroundColor = ConsoleColor.Green;
 
             }
-            else if (willSearch == false)
-            {
-                UserInteraction.StoryDialogue("Realizing that there may be danger inside, you decide to keep traveling.");
-            }
             else
             {
-                UserInteraction.StoryDialogue("That is not an option. Try again.");
+                UserInteraction.StoryDialogue("Realizing that there may be danger inside, you decide to keep traveling.");
             }
 
 
