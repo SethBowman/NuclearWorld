@@ -162,6 +162,7 @@ namespace NuclearWorld
                 Console.WriteLine(" You have died in the wasteland.\n Better luck next time!");
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(" (GAME OVER.)");
+                Console.ForegroundColor = ConsoleColor.White;
                 Environment.Exit(0);
             }
             
