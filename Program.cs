@@ -399,7 +399,7 @@ namespace NuclearWorld
             }
             else
             {
-                UserInteraction.StoryDialogue(" Your stomach growls with hunger.");
+                UserInteraction.StoryDialogue(" Your health is full, so you don't need to heal.");
                 UserInteraction.PressEnter();
             }
 
