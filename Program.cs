@@ -186,7 +186,7 @@ namespace NuclearWorld
 
             if (MainCharacter.Health < 50 && mainCharacter.MainInventory.Count >= 1)
             {
-                UserInteraction.StoryDialogue("Would you like to use a consumable and heal?");
+                UserInteraction.StoryDialogue(" Would you like to use a consumable and heal?");
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 UserInteraction.StoryDialogue("(Type yes or no.)");
                 Console.ForegroundColor = ConsoleColor.Green;
