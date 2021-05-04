@@ -44,7 +44,7 @@ namespace NuclearWorld
 
         public static void Heal(int heals)
         {
-            if (heals > Health)
+            if (heals + Health > 100)
             {
                 Health = 100;
             }

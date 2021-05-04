@@ -58,10 +58,10 @@ namespace NuclearWorld
                     Console.WriteLine("East? I thought you said Weast!");
                     break;
                 case "c":
-                    Console.WriteLine("South? Some of ours headed that way a few weeks ago and never came back..");
+                    Console.WriteLine("South? Let's give it a shot.");
                     break;
                 case "d":
-                    Console.WriteLine("I've never been west of here before. Let's give it a shot.");
+                    Console.WriteLine("Okay then, let's head west.");
                     break;
                 default:
                     Console.WriteLine("That is not an option. Choose again.");

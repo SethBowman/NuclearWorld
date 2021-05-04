@@ -262,24 +262,27 @@ namespace NuclearWorld
                     UserInteraction.StoryDialogue($" The {badGuy.Name} opens fire at you, hiting you in the side.\n The warm sting from the bullet sends a chill down your spine.");
                     MainCharacter.TakeDamage(badGuy.AttackDamage);
                     UserInteraction.GameOver();
-                    UserInteraction.StoryDialogue($" Health - {badGuy.AttackDamage}\n Your Health = {MainCharacter.Health}");
+                    UserInteraction.StoryDialogue($" Your Health - {badGuy.AttackDamage}\n Your Health = {MainCharacter.Health}");
                     UserInteraction.PressEnter();
                     if (fighterClass == "a")
                     {
                         UserInteraction.StoryDialogue($" You return fire at the enemy, hitting him directly in the head and killing him instantly.");
                         Combat.Fighting(Weapon.DamageValue, Enemy.Health);
-                        UserInteraction.StoryDialogue($" {badGuy.Name} Health - {Weapon.DamageValue}\n Health = {Enemy.Health}");
+                        UserInteraction.StoryDialogue($" {badGuy.Name} Health - {Weapon.DamageValue}\n {badGuy.Name} Health = {Enemy.Health}");
                     }
                     else if (fighterClass == "b")
                     {
                         UserInteraction.StoryDialogue($" You take your chance while the {badGuy.Name} is reloading.. You charge him full force.\n Swinging with all your might, you decapitate him.");
                         Combat.Fighting(Weapon.DamageValue, Enemy.Health);
-                        UserInteraction.StoryDialogue($" {badGuy.Name} Health - {Weapon.DamageValue}\n Health = {Enemy.Health}");
+                        UserInteraction.StoryDialogue($" {badGuy.Name} Health - {Weapon.DamageValue}\n {badGuy.Name} Health = {Enemy.Health}");
                     }
                 }
                 else
                 {
-                    UserInteraction.StoryDialogue(" You turn and run with your tail between your legs.");
+                    UserInteraction.StoryDialogue(" You turn and run with your tail between your legs, taking a bullet to the ass in the process.");
+                    MainCharacter.TakeDamage(10);
+                    UserInteraction.GameOver();
+                    UserInteraction.StoryDialogue($" Your Health - 10\n Your Health = {MainCharacter.Health}");
                 }
                 UserInteraction.PressEnter();
             }
@@ -332,7 +335,7 @@ namespace NuclearWorld
             {
                 UserInteraction.StoryDialogue($" Walking along the road a {monster.Name} attacks you.. such bad luck..");
                 MainCharacter.TakeDamage(monster.AttackDamage);
-                UserInteraction.StoryDialogue($" Health - {monster.AttackDamage}\n Your Health = {MainCharacter.Health}");
+                UserInteraction.StoryDialogue($" Your Health - {monster.AttackDamage}\n Your Health = {MainCharacter.Health}");
                 UserInteraction.GameOver();
                 
                 UserInteraction.StoryDialogue($" You manage to crawl under a car and bandage your wounds. You wait for a few hours until the {monster.Name} leaves.");
@@ -352,32 +355,35 @@ namespace NuclearWorld
                     UserInteraction.StoryDialogue($" The {otherBadGuy.Name} opens fire at you, hitting you multiple times in your legs.\n The pain is agonizing.");
                     MainCharacter.TakeDamage(otherBadGuy.AttackDamage);
                     UserInteraction.GameOver();
-                    UserInteraction.StoryDialogue($" Health - {otherBadGuy.AttackDamage}\n Your Health = {MainCharacter.Health}");
+                    UserInteraction.StoryDialogue($" Your Health - {otherBadGuy.AttackDamage}\n Your Health = {MainCharacter.Health}");
                     UserInteraction.PressEnter();
                     if (fighterClass == "a")
                     {
                         UserInteraction.StoryDialogue($" You return fire at the {otherBadGuy.Name}.. your bullets pierce his skull, fatally wounding him.");
                         Combat.Fighting(Weapon.DamageValue, Enemy.Health);
-                        UserInteraction.StoryDialogue($" {otherBadGuy.Name} Health - {Weapon.DamageValue}\n Health = {Enemy.Health}");
+                        UserInteraction.StoryDialogue($" {otherBadGuy.Name} Health - {Weapon.DamageValue}\n {otherBadGuy.Name} Health = {Enemy.Health}");
                     }
                     else if (fighterClass == "b")
                     {
-                        UserInteraction.StoryDialogue($" You take your chance while the {otherBadGuy.Name} is reloading.. You charge him full force.\n You cut into his chest deeply, fatally wounding him.");
+                        UserInteraction.StoryDialogue($" You take your chance while the {otherBadGuy.Name} is reloading.. and you charge at him full force.\n You cut into his chest deeply, fatally wounding him.");
                         Combat.Fighting(Weapon.DamageValue, Enemy.Health);
-                        UserInteraction.StoryDialogue($" {otherBadGuy.Name} Health - {Weapon.DamageValue}\n Health = {Enemy.Health}");
+                        UserInteraction.StoryDialogue($" {otherBadGuy.Name} Health - {Weapon.DamageValue}\n {otherBadGuy.Name} Health = {Enemy.Health}");
                     }
                     UserInteraction.StoryDialogue($" You leave the {otherBadGuy.Name} to bleed out and perish.");
                 }
                 else
                 {
-                    UserInteraction.StoryDialogue(" You turn and run with your tail between your legs.");
+                    UserInteraction.StoryDialogue(" You turn and run with your tail between your legs, taking a bullet to the ass in the process.");
+                    MainCharacter.TakeDamage(10);
+                    UserInteraction.GameOver();
+                    UserInteraction.StoryDialogue($" Your Health - 10\n Your Health = {MainCharacter.Health}");
                 }
                 UserInteraction.PressEnter();
             }
 
 
 
-            if (mainCharacter.MainInventory.Count >= 1)
+            if (mainCharacter.MainInventory.Count >= 1 && MainCharacter.Health < 100)
             {
                 UserInteraction.StoryDialogue(" You use a consumable, replenishing your health.");
                 MainCharacter.Heal(mainCharacter.MainInventory[0].HealValue);
@@ -400,7 +406,7 @@ namespace NuclearWorld
             UserInteraction.StoryDialogue($" Congratulations! You have survived with a score of {MainCharacter.Health}");
             UserInteraction.PressEnter();
             UserInteraction.StoryDialogue(" GAME OVER.");
-
+            Console.ForegroundColor = ConsoleColor.White;
 
 
 
