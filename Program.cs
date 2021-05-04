@@ -272,7 +272,7 @@ namespace NuclearWorld
                     }
                     else if (fighterClass == "b")
                     {
-                        UserInteraction.StoryDialogue($" You take your chance while the {badGuy.Name} is reloading.. You charge him full force.\nSwinging with all your might, you decapitate him.");
+                        UserInteraction.StoryDialogue($" You take your chance while the {badGuy.Name} is reloading.. You charge him full force.\n Swinging with all your might, you decapitate him.");
                         Combat.Fighting(Weapon.DamageValue, Enemy.Health);
                         UserInteraction.StoryDialogue($" {badGuy.Name} Health - {Weapon.DamageValue}\n Health = {Enemy.Health}");
                     }
