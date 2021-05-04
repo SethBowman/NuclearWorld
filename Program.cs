@@ -392,8 +392,8 @@ namespace NuclearWorld
                 mainCharacter.MainInventory.Remove(mainCharacter.MainInventory[0]);
                 UserInteraction.PressEnter();
 
-                UserInteraction.StoryDialogue($" Health = {MainCharacter.Health} + 10\n " +
-                   $"Health = {MainCharacter.Health}.");
+                UserInteraction.StoryDialogue($" Health + {mainCharacter.MainInventory[0].HealValue}\n" +
+                   $" Health = {MainCharacter.Health}.");
 
                 UserInteraction.PressEnter();
             }
