@@ -24,6 +24,14 @@ namespace NuclearWorld
             UserInteraction.StoryDialogue("(Please enter the name of your survivor:)");
             Console.ForegroundColor = ConsoleColor.Green;
             var adventurerName = Console.ReadLine();
+            if(string.IsNullOrEmpty(adventurerName))
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                UserInteraction.StoryDialogue("(You failed to type a name.)");
+                UserInteraction.PressEnter();
+                adventurerName = "Dumbass";
+            }
+
 
             Weapon.DamageValue = 30;
             var mainCharacter = new MainCharacter();
