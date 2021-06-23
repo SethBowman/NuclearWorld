@@ -394,7 +394,7 @@ namespace NuclearWorld
 
 
 
-            if (mainCharacter.MainInventory.Count >= 1 && MainCharacter.Health < 60)
+            if (mainCharacter.MainInventory.Count == 1 && MainCharacter.Health < 60)
             {
                 UserInteraction.StoryDialogue(" You use a consumable, replenishing your health.");
                 MainCharacter.Heal(mainCharacter.MainInventory[0].HealValue);
