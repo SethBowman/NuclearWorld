@@ -401,12 +401,8 @@ namespace NuclearWorld
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 UserInteraction.StoryDialogue($"You have consumed {mainCharacter.MainInventory[0].Name}");
                 mainCharacter.MainInventory.Remove(mainCharacter.MainInventory[0]);
-                UserInteraction.PressEnter();
+                UserInteraction.PressEnter();               
 
-                UserInteraction.StoryDialogue($" Health + {mainCharacter.MainInventory[0].HealValue}\n" +
-                   $" Health = {MainCharacter.Health}.");
-
-                UserInteraction.PressEnter();
             }
             else
             {
