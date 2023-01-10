@@ -9,7 +9,6 @@ namespace NuclearWorld
         static void Main(string[] args)
         {
             Game.RunGame();
-
         }
 
 
