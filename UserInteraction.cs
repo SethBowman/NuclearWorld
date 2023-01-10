@@ -6,10 +6,28 @@ using System.Threading.Tasks;
 
 namespace NuclearWorld
 {
+    public class Kata
+    {
+        public static string Contamination(string text, string character)
+        {
+            var str = "";
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                str += character;
+            }
+            return str;
+            Console.WriteLine(str);
+        }
+    }
+
     class UserInteraction
     {
         public static string GetUserClass()
         {
+
+            Kata.Contamination("abc", "z");
+
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("Choose your fighter class!");
             Console.WriteLine("A: Gunner");
@@ -127,7 +145,7 @@ namespace NuclearWorld
             Console.ForegroundColor = ConsoleColor.Green;
         }
 
-
+        
 
         public static void IntroDialogue()
         {
@@ -171,3 +189,6 @@ namespace NuclearWorld
     }
 
 }
+
+
+

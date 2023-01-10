@@ -12,11 +12,11 @@ namespace NuclearWorld
         {
             UserInteraction.GameHeader();
             UserInteraction.PressEnter();
-
+            Console.Clear();
 
             UserInteraction.IntroDialogue();
             UserInteraction.PressEnter();
-
+            Console.Clear();
 
             UserInteraction.StoryDialogue(" Here comes another one! Prepare to open fire!\n Oh, you're not a raider or a mutant.\n Partner, you almost got filled with lead!\n" +
                 " Well look-ee here. Survived the bombs, did you?\n What's your name, friend?");
@@ -29,9 +29,9 @@ namespace NuclearWorld
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 UserInteraction.StoryDialogue("(You failed to type a name.)");
                 UserInteraction.PressEnter();
-                adventurerName = "Dumbass";
+                adventurerName = "The Chosen One";
             }
-
+            Console.Clear();
 
             Weapon.DamageValue = 30;
             var mainCharacter = new MainCharacter();
@@ -45,7 +45,7 @@ namespace NuclearWorld
                 $" I'm the guardian of 'Bunker 34' here, so you'd best mind yer manners.\n" +
                 $" If you're gonna be ridin' with us you'll be needing a weapon, partner.. any preference?");
             UserInteraction.PressEnter();
-
+            Console.Clear();
 
             string fighterClass;
 
@@ -82,7 +82,7 @@ namespace NuclearWorld
                 UserInteraction.StoryDialogue($"{sword.Name} added to inventory.");
             }
             UserInteraction.PressEnter();
-
+            Console.Clear();
 
             UserInteraction.StoryDialogue(" To be quite honest, friend, we could use someone with some outside experience.\n" +
                 " There's a whole nasty world out there and most folks ain't the friendly type.\n" +
@@ -90,12 +90,14 @@ namespace NuclearWorld
                 " Sound like a deal? Good.");
 
             UserInteraction.PressEnter();
+            Console.Clear();
 
             UserInteraction.StoryDialogue(" Time to leave the bunker and enter the wasteland! We are running low on most of our rations and supplies.\n" +
                 " It's been 10 days since we've found food or fresh water. We need to scout for some if we are going to survive!\n" +
                 " We could try the nearby settlements and ask for trade, or maybe search abandoned shelters for supplies.\n" +
                 " We have been down in the bunker for most of our lives, so I am not familiar with the local territory.\n Only one way to find out what's out there.");
             UserInteraction.PressEnter();
+            Console.Clear();
 
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             UserInteraction.StoryDialogue("Now first, which way are we heading?");
@@ -114,9 +116,10 @@ namespace NuclearWorld
 
 
 
-
+            Console.Clear();
             UserInteraction.StoryDialogue(" Alright then, let's head out.");
             UserInteraction.PressEnter();
+            Console.Clear();
 
 
             if (currentDirection == "a")
@@ -159,6 +162,7 @@ namespace NuclearWorld
                 UserInteraction.PressEnter();
             }
 
+            Console.Clear();
 
             UserInteraction.StoryDialogue(" Approaching a clearing, you see what appears to be the outline of some kind of structure.\n" +
                 " As you start to get closer, you can see that it is an old abandoned shack.\n It doesn't doesn't look like anyone has been there in some time.\n" +
@@ -185,13 +189,18 @@ namespace NuclearWorld
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 UserInteraction.StoryDialogue($"{snack1.Name} added to inventory.");
                 Console.ForegroundColor = ConsoleColor.Green;
+                UserInteraction.PressEnter();
+                Console.Clear();
 
             }
             else
             {
                 UserInteraction.StoryDialogue(" Realizing that there may be danger inside, you decide to keep traveling.");
+                UserInteraction.PressEnter();
+                Console.Clear();
             }
-            UserInteraction.PressEnter();
+           
+           
 
 
             if (MainCharacter.Health < 50 && mainCharacter.MainInventory.Count >= 1)
@@ -212,15 +221,18 @@ namespace NuclearWorld
                     Console.ForegroundColor = ConsoleColor.Green;
                     UserInteraction.StoryDialogue($" Your Health = {MainCharacter.Health}");
                     UserInteraction.PressEnter();
+                    Console.Clear();
                 }
                 else
                 {
                     UserInteraction.StoryDialogue("You continue on your journey..");
                     UserInteraction.PressEnter();
+                    Console.Clear();
                 }
 
             }
 
+           
 
             var monster = new Enemy()
             {
@@ -243,12 +255,13 @@ namespace NuclearWorld
             };
 
 
+            
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             UserInteraction.StoryDialogue("You come to a crossroads.. which direction will you go?");
             UserInteraction.StoryDialogue(" A: North\n B: East\n C: South\n D: West");
             UserInteraction.StoryDialogue("(Type 'a', 'b', 'c', or 'd')");
             Console.ForegroundColor = ConsoleColor.Green;
-
+           
 
             do
             {
@@ -257,6 +270,8 @@ namespace NuclearWorld
                 UserInteraction.CheckDirection(currentDirection);
 
             } while (currentDirection != "a" && currentDirection != "b" && currentDirection != "c" && currentDirection != "d");
+            
+            Console.Clear();
 
             if (currentDirection == "a")
             {
@@ -392,7 +407,7 @@ namespace NuclearWorld
                 UserInteraction.PressEnter();
             }
 
-
+            Console.Clear();
 
             if (mainCharacter.MainInventory.Count == 1 && MainCharacter.Health < 60)
             {
@@ -410,6 +425,7 @@ namespace NuclearWorld
                 UserInteraction.PressEnter();
             }
 
+            Console.Clear();
             UserInteraction.StoryDialogue($" Congratulations! You have survived with a score of {MainCharacter.Health}");
             UserInteraction.PressEnter();
             UserInteraction.StoryDialogue(" GAME OVER.");
