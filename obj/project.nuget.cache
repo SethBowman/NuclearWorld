@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7DYfuJREwtQfsaOzqdll6zDU+XUef//jOHj+5o9FchXrOz0L0j+Fk9SPDgPTmE6djaY2Yq0R+zQJwcKp6noItA==",
+  "dgSpecHash": "nYrLGyks5dvusnSsrXUAu6Dl/1iq4U415rUu2Q/nl3c3J6r6msooC9p0PM/zzgC4qrdUKdDUIqqjCGWtwGRPag==",
   "success": true,
   "projectFilePath": "C:\\Users\\brand\\Desktop\\repos\\NuclearWorld\\NuclearWorld.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\brand\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
