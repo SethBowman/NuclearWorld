@@ -1,5 +1,5 @@
 # $${\color{lightgreen}Nuclear \space World}$$
-## A post nuclear themed <i>text-based</i> adventure game! Try your luck to survive to the end with the highest health possible. 
+### A post nuclear themed <i>text-based</i> adventure game! Try your luck to survive to the end with the highest health possible. 
 
 
 
