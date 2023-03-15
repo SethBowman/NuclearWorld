@@ -317,7 +317,7 @@ namespace NuclearWorld
                         {
                             while (MainCharacter.LifeCheck() && badGuy.Health > 0)
                             {
-                                UserInteraction.StoryDialogue($"The {badGuy.Name} opens fire at you, hiting you in the side.\n The warm sting from the bullet sends a chill down your spine.");
+                                UserInteraction.StoryDialogue($"The {badGuy.Name} opens fire at you, hitting you in the side.\n The warm sting from the bullet sends a chill down your spine.");
                                 Console.WriteLine();
                                 UserInteraction.StoryDialogue($" Your health before dmg: {MainCharacter.Health}");
                                 MainCharacter.TakeDamage(badGuy.AttackDamage);
