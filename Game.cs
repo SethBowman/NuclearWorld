@@ -311,6 +311,7 @@ namespace NuclearWorld
                             UserInteraction.StoryDialogue($"{badGuy.Name}'s health after dmg: {badGuy.Health}");
                             Console.WriteLine();
                             Thread.Sleep(4000);
+                            UserInteraction.PressEnter();
                             Console.Clear();
                         }
                         else if (fighterClass == "b")
@@ -321,6 +322,7 @@ namespace NuclearWorld
                             UserInteraction.StoryDialogue($"{badGuy.Name}'s health after dmg: {badGuy.Health}");
                             Console.WriteLine();                            
                             Thread.Sleep(4000);
+                            UserInteraction.PressEnter();
                             Console.Clear();
                         }
                     }
@@ -423,6 +425,7 @@ namespace NuclearWorld
                             UserInteraction.StoryDialogue($"{otherBadGuy.Name}'s health after dmg: {otherBadGuy.Health}");
                             Console.WriteLine();
                             Thread.Sleep(4000);
+                            UserInteraction.PressEnter();
                             Console.Clear();
                         }
                         else if (fighterClass == "b")
@@ -434,6 +437,7 @@ namespace NuclearWorld
                             UserInteraction.StoryDialogue($"{otherBadGuy.Name}'s health after dmg: {otherBadGuy.Health}");
                             Console.WriteLine();
                             Thread.Sleep(4000);
+                            UserInteraction.PressEnter();
                             Console.Clear();
                         }
                     }
