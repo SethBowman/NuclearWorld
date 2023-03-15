@@ -383,17 +383,14 @@ namespace NuclearWorld
                 UserInteraction.PressEnter();
             }
             else if (currentDirection == "c")
-            {
-                while (MainCharacter.LifeCheck())
-                {
+            {                
                     UserInteraction.StoryDialogue($" Walking along the road a {monster.Name} attacks you.. such bad luck..");
                     MainCharacter.TakeDamage(monster.AttackDamage);
                     UserInteraction.StoryDialogue($" Your Health - {monster.AttackDamage}\n Your Health = {MainCharacter.Health}");
                     UserInteraction.GameOver();
 
                     UserInteraction.StoryDialogue($" You manage to crawl under a car and bandage your wounds. You wait for a few hours until the {monster.Name} leaves.");
-                    UserInteraction.PressEnter();
-                }
+                    UserInteraction.PressEnter();                
             }
             else if (currentDirection == "d")
             {
