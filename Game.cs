@@ -503,6 +503,7 @@ namespace NuclearWorld
                 else
                 {
                     UserInteraction.StoryDialogue("Life is hard.\nGame over.");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
             }
         }
