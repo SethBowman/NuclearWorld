@@ -54,7 +54,7 @@ namespace NuclearWorld
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
                         UserInteraction.StoryDialogue("(You failed to type a name.)");
                         UserInteraction.PressEnter();
-                        adventurerName = "The Chosen One";
+                        adventurerName = "No Name";
                     }
                     Console.Clear();
 
