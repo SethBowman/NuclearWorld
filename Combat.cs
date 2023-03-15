@@ -16,7 +16,7 @@ namespace NuclearWorld
             }
             else
             {
-                return attack - health;
+                return health - attack;
             }
         }
 

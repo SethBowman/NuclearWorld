@@ -48,7 +48,7 @@ namespace NuclearWorld
             Console.Clear();
 
             string fighterClass;
-            var dmg = r.Next(40, 60);
+            var dmg = r.Next(15, 60);
 
             do
             {
@@ -296,7 +296,7 @@ namespace NuclearWorld
                 {
                     while (MainCharacter.LifeCheck() && badGuy.Health > 0)
                     {
-                        UserInteraction.StoryDialogue($" The {badGuy.Name} opens fire at you, hiting you in the side.\n The warm sting from the bullet sends a chill down your spine.");
+                        UserInteraction.StoryDialogue($"The {badGuy.Name} opens fire at you, hiting you in the side.\n The warm sting from the bullet sends a chill down your spine.");
                         Console.WriteLine();
                         UserInteraction.StoryDialogue($" Your health before dmg: {MainCharacter.Health}");
                         MainCharacter.TakeDamage(badGuy.AttackDamage);
@@ -305,21 +305,26 @@ namespace NuclearWorld
                         UserInteraction.PressEnter();
                         if (fighterClass == "a")
                         {
-                            UserInteraction.StoryDialogue($" You return fire at the enemy, dealing damage.");
+                            UserInteraction.StoryDialogue($"You return fire at the enemy, dealing damage.");
                             UserInteraction.StoryDialogue($"{badGuy.Name}'s health before dmg: {badGuy.Health}");
                             badGuy.Health = Combat.Fighting(mainCharacter.Weapon.DamageValue, badGuy.Health);
                             UserInteraction.StoryDialogue($"{badGuy.Name}'s health after dmg: {badGuy.Health}");
-                            Thread.Sleep(2000);
+                            Console.WriteLine();
+                            Thread.Sleep(4000);
+                            Console.Clear();
                         }
                         else if (fighterClass == "b")
                         {
-                            UserInteraction.StoryDialogue($" You take your chance while the {badGuy.Name} is reloading.. You charge him full force.\n Swinging with all your might.. You deal damage.");
+                            UserInteraction.StoryDialogue($"You take your chance while the {badGuy.Name} is reloading.. You charge him full force.\n Swinging with all your might.. You deal damage.");
                             UserInteraction.StoryDialogue($"{badGuy.Name}'s health before dmg: {badGuy.Health}");
                             badGuy.Health = Combat.Fighting(mainCharacter.Weapon.DamageValue, badGuy.Health);
                             UserInteraction.StoryDialogue($"{badGuy.Name}'s health after dmg: {badGuy.Health}");
-                            Thread.Sleep(2000);
+                            Console.WriteLine();                            
+                            Thread.Sleep(4000);
+                            Console.Clear();
                         }
                     }
+                        UserInteraction.StoryDialogue($"You leave the {badGuy.Name} to his grave.");
                 }
                 else
                 {
@@ -416,7 +421,9 @@ namespace NuclearWorld
                             UserInteraction.StoryDialogue($"{otherBadGuy.Name}'s health before dmg: {otherBadGuy.Health}");
                             otherBadGuy.Health = Combat.Fighting(mainCharacter.Weapon.DamageValue, otherBadGuy.Health);
                             UserInteraction.StoryDialogue($"{otherBadGuy.Name}'s health after dmg: {otherBadGuy.Health}");
-                            Thread.Sleep(2000);
+                            Console.WriteLine();
+                            Thread.Sleep(4000);
+                            Console.Clear();
                         }
                         else if (fighterClass == "b")
                         {
@@ -425,19 +432,21 @@ namespace NuclearWorld
                             UserInteraction.StoryDialogue($"{otherBadGuy.Name}'s health before dmg: {otherBadGuy.Health}");
                             Combat.Fighting(mainCharacter.Weapon.DamageValue, otherBadGuy.Health);
                             UserInteraction.StoryDialogue($"{otherBadGuy.Name}'s health after dmg: {otherBadGuy.Health}");
-                            Thread.Sleep(2000);
+                            Console.WriteLine();
+                            Thread.Sleep(4000);
+                            Console.Clear();
                         }
+                    }
                         UserInteraction.StoryDialogue($" You leave the {otherBadGuy.Name} to bleed out and perish.");
                         UserInteraction.PressEnter();
                         Console.Clear();
-                    }
                 }
                 else
                 {
                     UserInteraction.StoryDialogue(" You turn and run with your tail between your legs, taking a bullet to the ass in the process.");
-                    MainCharacter.TakeDamage(10);
+                    MainCharacter.TakeDamage(30);
                     UserInteraction.GameOver();
-                    UserInteraction.StoryDialogue($" Your Health - 10\n Your Health = {MainCharacter.Health}");
+                    UserInteraction.StoryDialogue($" Your Health - 30\n Your Health = {MainCharacter.Health}");
                 }
                 UserInteraction.PressEnter();
             }

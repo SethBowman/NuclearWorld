@@ -124,8 +124,6 @@ namespace NuclearWorld
             int topOffSet = (int)(Console.WindowHeight / 2.75);
             Console.SetCursorPosition(leftOffSet, topOffSet);
 
-
-
             string title = @"
                          _______              __                        ________              __     __ 
                         |    |  |.--.--.----.|  |.-----.---.-.----.    |  |  |  |.-----.----.|  |.--|  |
