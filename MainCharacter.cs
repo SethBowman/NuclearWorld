@@ -13,6 +13,8 @@ namespace NuclearWorld
         public string FighterClass { get; set; }
         public List<Item> MainInventory { get; set; } = new List<Item>();
         public static bool IsAlive { get; set; }
+        public Weapon Weapon { get; set; }
+        
 
 
         public static bool LifeCheck()

@@ -8,7 +8,7 @@ namespace NuclearWorld
 {
     public class Weapon : Item
     {
-        public static int DamageValue { get; set; }
+        public int DamageValue { get; set; }
         
     }
 }

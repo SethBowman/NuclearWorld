@@ -8,7 +8,7 @@ namespace NuclearWorld
 {
     public class Enemy
     {
-        public static int Health { get; set; }
+        public int Health { get; set; }
         public int AttackDamage { get; set; }
         public string Name { get; set; }
 

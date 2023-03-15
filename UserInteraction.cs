@@ -6,27 +6,12 @@ using System.Threading.Tasks;
 
 namespace NuclearWorld
 {
-    public class Kata
-    {
-        public static string Contamination(string text, string character)
-        {
-            var str = "";
-
-            for (int i = 0; i < text.Length; i++)
-            {
-                str += character;
-            }
-            return str;
-            Console.WriteLine(str);
-        }
-    }
-
     class UserInteraction
     {
         public static string GetUserClass()
         {
 
-            Kata.Contamination("abc", "z");
+
 
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("Choose your fighter class!");
@@ -86,7 +71,7 @@ namespace NuclearWorld
                     break;
             }
             Console.ForegroundColor = ConsoleColor.Green;
-        }       
+        }
 
 
 
@@ -131,21 +116,28 @@ namespace NuclearWorld
 
 
 
-       
+
         public static void GameHeader()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            UserInteraction.StoryDialogue(@"                                           Seth Bowman presents:");
-            Console.ForegroundColor = ConsoleColor.Blue;
-            UserInteraction.StoryDialogue(@"      _____   __            ______                       ___       __            ______________");
-            UserInteraction.StoryDialogue(@"      ___  | / /___  __________  /__________ ________    __ |     / /_______________  /_____  /");
-            UserInteraction.StoryDialogue(@"      __   |/ /_  / / /  ___/_  /_  _ \  __ `/_  ___/    __ | /| / /_  __ \_  ___/_  /_  __  / ");
-            UserInteraction.StoryDialogue(@"      _  /|  / / /_/ // /__ _  / /  __/ /_/ /_  /        __ |/ |/ / / /_/ /  /   _  / / /_/ /  ");
-            UserInteraction.StoryDialogue(@"      /_/ |_/  \__,_/ \___/ /_/  \___/\__,_/ /_/         ____/|__/  \____//_/    /_/  \__,_/   ");
+            int leftOffSet = (Console.WindowWidth / 2);
+            int topOffSet = (int)(Console.WindowHeight / 2.75);
+            Console.SetCursorPosition(leftOffSet, topOffSet);
+
+
+
+            string title = @"
+                         _______              __                        ________              __     __ 
+                        |    |  |.--.--.----.|  |.-----.---.-.----.    |  |  |  |.-----.----.|  |.--|  |
+                        |       ||  |  |  __||  ||  -__|  _  |   _|    |  |  |  ||  _  |   _||  ||  _  |
+                        |__|____||_____|____||__||_____|___._|__|      |________||_____|__|  |__||_____|";
+            UserInteraction.StoryDialogue(title);
+
+            Console.SetCursorPosition(leftOffSet, topOffSet);
             Console.ForegroundColor = ConsoleColor.Green;
         }
 
-        
+
 
         public static void IntroDialogue()
         {
@@ -183,11 +175,10 @@ namespace NuclearWorld
                 Console.ForegroundColor = ConsoleColor.White;
                 Environment.Exit(0);
             }
-            
+
         }
 
     }
-
 }
 
 
