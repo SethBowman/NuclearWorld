@@ -189,7 +189,7 @@ namespace NuclearWorld
                                 UserInteraction.StoryDialogue($" Your health before blood donation: {MainCharacter.Health}");
                                 MainCharacter.TakeDamage(10);
                                 UserInteraction.StoryDialogue($" Your health after blood donation: {MainCharacter.Health}\nYou take the dmg boost serum..");
-                                Thread.Sleep(3000);
+                                Thread.Sleep(2000);
                                 var newDmg = r.Next(20, 65);
                                 mainCharacter.Weapon.DamageValue = newDmg;
                                 UserInteraction.StoryDialogue(" Your dmg has been increased!");
@@ -572,9 +572,8 @@ namespace NuclearWorld
 
                     Console.Clear();
                     UserInteraction.StoryDialogue($" Congratulations! You have survived with a score of {MainCharacter.Health}");
+                    UserInteraction.StoryDialogue(" GAME OVER.");                    
                     UserInteraction.PressEnter();
-                    UserInteraction.StoryDialogue(" GAME OVER.");
-                    Thread.Sleep(3000);
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.White;
 
