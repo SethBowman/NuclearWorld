@@ -173,8 +173,37 @@ namespace NuclearWorld
                     }
                     else if (currentDirection == "c")
                     {
-                        UserInteraction.StoryDialogue(" You feel good about your choice of direction.");
-                        UserInteraction.PressEnter();
+                        if (randomize < 1)
+                        {
+                            UserInteraction.StoryDialogue(" You feel good about your choice of direction.");
+                            UserInteraction.PressEnter();
+                        }
+                        else
+                        {
+                            UserInteraction.StoryDialogue("You come across a doctor in the wasteland offering to give you a serum to boost your dmg.\nAll he asks is you donate some blood.. for research..\nWill you donate blood for a dmg boost? (Type 'yes' or 'no'))");
+                            var bloodDonation = UserInteraction.YesOrNo(Console.ReadLine().ToLower());
+                            if(bloodDonation)
+                            {
+                                UserInteraction.StoryDialogue("You donate some blood for a dmg serum.");
+                                Thread.Sleep(2000);
+                                UserInteraction.StoryDialogue($" Your health before blood donation: {MainCharacter.Health}");
+                                MainCharacter.TakeDamage(10);
+                                UserInteraction.StoryDialogue($" Your health after blood donation: {MainCharacter.Health}\nYou take the dmg boost serum..");
+                                Thread.Sleep(3000);
+                                var newDmg = r.Next(20, 65);
+                                mainCharacter.Weapon.DamageValue = newDmg;
+                                UserInteraction.StoryDialogue("Your dmg has been increased!");
+                                UserInteraction.PressEnter();
+                                Console.Clear();
+                            }
+                            else
+                            {
+                                UserInteraction.StoryDialogue("You decide to keep your blood.");
+                                UserInteraction.PressEnter();
+                                Console.Clear();
+
+                            }
+                        }
                     }
                     else if (currentDirection == "d")
                     {
