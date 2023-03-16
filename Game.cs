@@ -264,6 +264,7 @@ namespace NuclearWorld
                             }
                             UserInteraction.StoryDialogue($"You flee after killing the {scavenger.Name}. Danger could be around every corner.\nThis is a lesson you won't forget.");
                             UserInteraction.PressEnter();
+                            Console.Clear();
                         }
 
                     }
