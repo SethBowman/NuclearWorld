@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace NuclearWorld
 {
@@ -171,7 +172,7 @@ namespace NuclearWorld
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(" (GAME OVER.)");
                 Console.ForegroundColor = ConsoleColor.White;
-                Environment.Exit(0);
+                Environment.Exit(0);               
             }
 
         }

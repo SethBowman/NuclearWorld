@@ -147,7 +147,7 @@ namespace NuclearWorld
                     UserInteraction.StoryDialogue(" Alright then, let's head out.");
                     UserInteraction.PressEnter();
                     Console.Clear();
-
+                    var randomize = r.Next(0, 2);
 
                     if (currentDirection == "a")
                     {
@@ -201,24 +201,72 @@ namespace NuclearWorld
                     Console.ForegroundColor = ConsoleColor.Green;
 
                     bool willSearch = UserInteraction.YesOrNo(Console.ReadLine().ToLower());
+                    Thread.Sleep(2000);
+                    Console.Clear();
 
                     if (willSearch)
                     {
-                        Item snack1 = new Consumables()
+                        if (randomize < 1)
                         {
-                            Name = "Twonkies Snack Cake",
-                            HealValue = r.Next(10, 30)
-                        };
+                            Item snack1 = new Consumables()
+                            {
+                                Name = "Twonkies Snack Cake",
+                                HealValue = r.Next(10, 30)
+                            };
 
-                        mainCharacter.MainInventory.Add(snack1);
+                            mainCharacter.MainInventory.Add(snack1);
 
-                        UserInteraction.StoryDialogue($" You search the abandoned shack thoroughly. In one of the kitchen cabinets you find a {snack1.Name}.");
-                        UserInteraction.PressEnter();
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        UserInteraction.StoryDialogue($"{snack1.Name} added to inventory.");
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        UserInteraction.PressEnter();
-                        Console.Clear();
+                            UserInteraction.StoryDialogue($" You search the abandoned shack thoroughly. In one of the kitchen cabinets you find a {snack1.Name}.");
+                            UserInteraction.PressEnter();
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            UserInteraction.StoryDialogue($"{snack1.Name} added to inventory.");
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            UserInteraction.PressEnter();
+                            Console.Clear();
+                        }
+                        else
+                        {
+                            var scavenger = new Enemy();
+                            scavenger.Health = 60;
+                            scavenger.AttackDamage = r.Next(15, 40);
+                            scavenger.Name = "Scavenger";
+                            UserInteraction.StoryDialogue($"A {scavenger.Name} was already there searching!\n He opens fire after spotting you in the doorway, wounding you.");
+                            UserInteraction.PressEnter();
+                            while (MainCharacter.LifeCheck() && scavenger.Health > 0)
+                            {
+                                UserInteraction.StoryDialogue($"The {scavenger.Name} opens fire, hitting you in the side!");
+                                Console.WriteLine();
+                                UserInteraction.StoryDialogue($" Your health before dmg: {MainCharacter.Health}");
+                                MainCharacter.TakeDamage(scavenger.AttackDamage);
+                                UserInteraction.GameOver();
+                                UserInteraction.StoryDialogue($" Your health after dmg: {MainCharacter.Health}");
+                                UserInteraction.PressEnter();
+                                if (fighterClass == "a")
+                                {
+                                    UserInteraction.StoryDialogue($"You return fire at the enemy, dealing damage.");
+                                    UserInteraction.StoryDialogue($"{scavenger.Name}'s health before dmg: {scavenger.Health}");
+                                    scavenger.Health = Combat.Fighting(mainCharacter.Weapon.DamageValue, scavenger.Health);
+                                    UserInteraction.StoryDialogue($"{scavenger.Name}'s health after dmg: {scavenger.Health}");
+                                    Console.WriteLine();
+                                    Thread.Sleep(3000);
+                                    UserInteraction.PressEnter();
+                                    Console.Clear();
+                                }
+                                else if (fighterClass == "b")
+                                {
+                                    UserInteraction.StoryDialogue($"You take your chance while the {scavenger.Name} is reloading.. You charge him full force.\n Swinging with all your might.. You deal damage.");
+                                    UserInteraction.StoryDialogue($"{scavenger.Name}'s health before dmg: {scavenger.Health}");
+                                    scavenger.Health = Combat.Fighting(mainCharacter.Weapon.DamageValue, scavenger.Health);
+                                    UserInteraction.StoryDialogue($"{scavenger.Name}'s health after dmg: {scavenger.Health}");
+                                    Console.WriteLine();
+                                    Thread.Sleep(4000);
+                                    UserInteraction.PressEnter();
+                                    Console.Clear();
+                                }
+                            }
+                            UserInteraction.StoryDialogue($"You flee after killing the {scavenger.Name}. Danger could be around every corner.\nThis is a lesson you won't forget.");
+                            UserInteraction.PressEnter();
+                        }
 
                     }
                     else
@@ -342,7 +390,7 @@ namespace NuclearWorld
                                     badGuy.Health = Combat.Fighting(mainCharacter.Weapon.DamageValue, badGuy.Health);
                                     UserInteraction.StoryDialogue($"{badGuy.Name}'s health after dmg: {badGuy.Health}");
                                     Console.WriteLine();
-                                    Thread.Sleep(4000);
+                                    Thread.Sleep(3000);
                                     UserInteraction.PressEnter();
                                     Console.Clear();
                                 }
@@ -442,7 +490,7 @@ namespace NuclearWorld
                                     otherBadGuy.Health = Combat.Fighting(mainCharacter.Weapon.DamageValue, otherBadGuy.Health);
                                     UserInteraction.StoryDialogue($"{otherBadGuy.Name}'s health after dmg: {otherBadGuy.Health}");
                                     Console.WriteLine();
-                                    Thread.Sleep(4000);
+                                    Thread.Sleep(3000);
                                     UserInteraction.PressEnter();
                                     Console.Clear();
                                 }
