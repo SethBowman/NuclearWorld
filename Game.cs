@@ -180,7 +180,7 @@ namespace NuclearWorld
                         }
                         else
                         {
-                            UserInteraction.StoryDialogue("You come across a doctor in the wasteland offering to give you a serum to boost your dmg.\nAll he asks is you donate some blood.. for research..\nWill you donate blood for a dmg boost? (Type 'yes' or 'no'))");
+                            UserInteraction.StoryDialogue(" You come across a doctor in the wasteland offering to give you a serum to boost your dmg.\n All he asks is you donate some blood.. for research..\n Will you donate blood for a dmg boost? (Type 'yes' or 'no'))");
                             var bloodDonation = UserInteraction.YesOrNo(Console.ReadLine().ToLower());
                             if(bloodDonation)
                             {
@@ -192,13 +192,13 @@ namespace NuclearWorld
                                 Thread.Sleep(3000);
                                 var newDmg = r.Next(20, 65);
                                 mainCharacter.Weapon.DamageValue = newDmg;
-                                UserInteraction.StoryDialogue("Your dmg has been increased!");
+                                UserInteraction.StoryDialogue(" Your dmg has been increased!");
                                 UserInteraction.PressEnter();
                                 Console.Clear();
                             }
                             else
                             {
-                                UserInteraction.StoryDialogue("You decide to keep your blood.");
+                                UserInteraction.StoryDialogue(" You decide to keep your blood.");
                                 UserInteraction.PressEnter();
                                 Console.Clear();
 
@@ -261,7 +261,7 @@ namespace NuclearWorld
                             scavenger.Health = 60;
                             scavenger.AttackDamage = r.Next(15, 40);
                             scavenger.Name = "Scavenger";
-                            UserInteraction.StoryDialogue($"A {scavenger.Name} was already there searching!\n He opens fire after spotting you in the doorway, wounding you.");
+                            UserInteraction.StoryDialogue($" A {scavenger.Name} was already there searching!\n He opens fire after spotting you in the doorway, wounding you.");
                             UserInteraction.PressEnter();
                             Console.Clear();
                             while (MainCharacter.LifeCheck() && scavenger.Health > 0)
