@@ -180,7 +180,7 @@ namespace NuclearWorld
                         }
                         else
                         {
-                            UserInteraction.StoryDialogue(" You come across a doctor in the wasteland offering to give you a serum to boost your dmg.\n All he asks is you donate some blood.. for research..\n Will you donate blood for a dmg boost? (Type 'yes' or 'no'))");
+                            UserInteraction.StoryDialogue(" You come across a doctor in the wasteland offering to give you a serum to boost your dmg.\n All he asks is you donate some blood.. for research..\n Will you donate blood for a dmg boost? (Type 'yes' or 'no')");
                             var bloodDonation = UserInteraction.YesOrNo(Console.ReadLine().ToLower());
                             if(bloodDonation)
                             {
