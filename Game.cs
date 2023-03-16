@@ -77,7 +77,7 @@ namespace NuclearWorld
 
                         UserInteraction.FighterClassSelection(fighterClass);
 
-                    } while (fighterClass != "a" && fighterClass != "b");                    
+                    } while (fighterClass != "a" && fighterClass != "b");
 
 
                     if (fighterClass == "a")
@@ -126,17 +126,21 @@ namespace NuclearWorld
                     Console.Clear();
 
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    UserInteraction.StoryDialogue("Now first, which way are we heading?");
-                    UserInteraction.StoryDialogue(" A: North\n B: East\n C: South\n D: West");
-                    UserInteraction.StoryDialogue("(Type 'a', 'b', 'c', or 'd')");
-                    Console.ForegroundColor = ConsoleColor.Green;
 
                     string currentDirection;
                     do
                     {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        UserInteraction.StoryDialogue("Now first, which way are we heading?");
+                        UserInteraction.StoryDialogue(" A: North\n B: East\n C: South\n D: West");
+                        UserInteraction.StoryDialogue("(Type 'a', 'b', 'c', or 'd')");
+
+                        Console.ForegroundColor = ConsoleColor.Green;
                         currentDirection = Console.ReadLine().ToLower();
 
                         UserInteraction.CheckDirection(currentDirection);
+                        UserInteraction.PressEnter();
+                        Console.Clear();
 
                     } while (currentDirection != "a" && currentDirection != "b" && currentDirection != "c" && currentDirection != "d");
 
@@ -199,7 +203,7 @@ namespace NuclearWorld
                     UserInteraction.StoryDialogue("(Type yes or no.)");
                     Console.ForegroundColor = ConsoleColor.Green;
 
-                    bool willSearch = UserInteraction.YesOrNo(Console.ReadLine().ToLower());                    
+                    bool willSearch = UserInteraction.YesOrNo(Console.ReadLine().ToLower());
                     Console.Clear();
 
                     if (willSearch)
@@ -246,7 +250,7 @@ namespace NuclearWorld
                                     UserInteraction.StoryDialogue($" {scavenger.Name}'s health before dmg: {scavenger.Health}");
                                     scavenger.Health = Combat.Fighting(mainCharacter.Weapon.DamageValue, scavenger.Health);
                                     UserInteraction.StoryDialogue($" {scavenger.Name}'s health after dmg: {scavenger.Health}");
-                                    Console.WriteLine();                                    
+                                    Console.WriteLine();
                                     UserInteraction.PressEnter();
                                     Console.Clear();
                                 }
@@ -256,7 +260,7 @@ namespace NuclearWorld
                                     UserInteraction.StoryDialogue($" {scavenger.Name}'s health before dmg: {scavenger.Health}");
                                     scavenger.Health = Combat.Fighting(mainCharacter.Weapon.DamageValue, scavenger.Health);
                                     UserInteraction.StoryDialogue($" {scavenger.Name}'s health after dmg: {scavenger.Health}");
-                                    Console.WriteLine();                                    
+                                    Console.WriteLine();
                                     UserInteraction.PressEnter();
                                     Console.Clear();
                                 }
@@ -331,19 +335,19 @@ namespace NuclearWorld
                     };
 
 
-
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    UserInteraction.StoryDialogue("You come to a crossroads.. which direction will you go?");
-                    UserInteraction.StoryDialogue(" A: North\n B: East\n C: South\n D: West");
-                    UserInteraction.StoryDialogue("(Type 'a', 'b', 'c', or 'd')");
-                    Console.ForegroundColor = ConsoleColor.Green;
-
-
                     do
                     {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        UserInteraction.StoryDialogue("You come to a crossroads.. which direction will you go?");
+                        UserInteraction.StoryDialogue(" A: North\n B: East\n C: South\n D: West");
+                        UserInteraction.StoryDialogue("(Type 'a', 'b', 'c', or 'd')");
+                        Console.ForegroundColor = ConsoleColor.Green;
+
                         currentDirection = Console.ReadLine().ToLower();
 
                         UserInteraction.CheckDirection(currentDirection);
+                        UserInteraction.PressEnter();
+                        Console.Clear();
 
                     } while (currentDirection != "a" && currentDirection != "b" && currentDirection != "c" && currentDirection != "d");
 
@@ -378,7 +382,7 @@ namespace NuclearWorld
                                     UserInteraction.StoryDialogue($" {badGuy.Name}'s health before dmg: {badGuy.Health}");
                                     badGuy.Health = Combat.Fighting(mainCharacter.Weapon.DamageValue, badGuy.Health);
                                     UserInteraction.StoryDialogue($" {badGuy.Name}'s health after dmg: {badGuy.Health}");
-                                    Console.WriteLine();                                    
+                                    Console.WriteLine();
                                     UserInteraction.PressEnter();
                                     Console.Clear();
                                 }
@@ -388,7 +392,7 @@ namespace NuclearWorld
                                     UserInteraction.StoryDialogue($" {badGuy.Name}'s health before dmg: {badGuy.Health}");
                                     badGuy.Health = Combat.Fighting(mainCharacter.Weapon.DamageValue, badGuy.Health);
                                     UserInteraction.StoryDialogue($" {badGuy.Name}'s health after dmg: {badGuy.Health}");
-                                    Console.WriteLine();                                    
+                                    Console.WriteLine();
                                     UserInteraction.PressEnter();
                                     Console.Clear();
                                 }
@@ -489,7 +493,7 @@ namespace NuclearWorld
                                     UserInteraction.StoryDialogue($" {otherBadGuy.Name}'s health before dmg: {otherBadGuy.Health}");
                                     otherBadGuy.Health = Combat.Fighting(mainCharacter.Weapon.DamageValue, otherBadGuy.Health);
                                     UserInteraction.StoryDialogue($" {otherBadGuy.Name}'s health after dmg: {otherBadGuy.Health}");
-                                    Console.WriteLine();                                    
+                                    Console.WriteLine();
                                     UserInteraction.PressEnter();
                                     Console.Clear();
                                 }
@@ -500,7 +504,7 @@ namespace NuclearWorld
                                     UserInteraction.StoryDialogue($" {otherBadGuy.Name}'s health before dmg: {otherBadGuy.Health}");
                                     Combat.Fighting(mainCharacter.Weapon.DamageValue, otherBadGuy.Health);
                                     UserInteraction.StoryDialogue($" {otherBadGuy.Name}'s health after dmg: {otherBadGuy.Health}");
-                                    Console.WriteLine();                                    
+                                    Console.WriteLine();
                                     UserInteraction.PressEnter();
                                     Console.Clear();
                                 }
@@ -541,7 +545,7 @@ namespace NuclearWorld
                     UserInteraction.StoryDialogue($" Congratulations! You have survived with a score of {MainCharacter.Health}");
                     UserInteraction.PressEnter();
                     UserInteraction.StoryDialogue(" GAME OVER.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.White;
 
