@@ -172,6 +172,7 @@ namespace NuclearWorld
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(" (GAME OVER.)");
                 Console.ForegroundColor = ConsoleColor.White;
+                Thread.Sleep(3000);
                 Environment.Exit(0);               
             }
 
