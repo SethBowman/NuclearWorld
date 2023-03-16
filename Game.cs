@@ -244,9 +244,9 @@ namespace NuclearWorld
                                 if (fighterClass == "a")
                                 {
                                     UserInteraction.StoryDialogue($"You return fire at the enemy, dealing damage.");
-                                    UserInteraction.StoryDialogue($"{scavenger.Name}'s health before dmg: {scavenger.Health}");
+                                    UserInteraction.StoryDialogue($" {scavenger.Name}'s health before dmg: {scavenger.Health}");
                                     scavenger.Health = Combat.Fighting(mainCharacter.Weapon.DamageValue, scavenger.Health);
-                                    UserInteraction.StoryDialogue($"{scavenger.Name}'s health after dmg: {scavenger.Health}");
+                                    UserInteraction.StoryDialogue($" {scavenger.Name}'s health after dmg: {scavenger.Health}");
                                     Console.WriteLine();                                    
                                     UserInteraction.PressEnter();
                                     Console.Clear();
@@ -254,9 +254,9 @@ namespace NuclearWorld
                                 else if (fighterClass == "b")
                                 {
                                     UserInteraction.StoryDialogue($"You take your chance while the {scavenger.Name} is reloading.. You charge him full force.\n Swinging with all your might.. You deal damage.");
-                                    UserInteraction.StoryDialogue($"{scavenger.Name}'s health before dmg: {scavenger.Health}");
+                                    UserInteraction.StoryDialogue($" {scavenger.Name}'s health before dmg: {scavenger.Health}");
                                     scavenger.Health = Combat.Fighting(mainCharacter.Weapon.DamageValue, scavenger.Health);
-                                    UserInteraction.StoryDialogue($"{scavenger.Name}'s health after dmg: {scavenger.Health}");
+                                    UserInteraction.StoryDialogue($" {scavenger.Name}'s health after dmg: {scavenger.Health}");
                                     Console.WriteLine();                                    
                                     UserInteraction.PressEnter();
                                     Console.Clear();
@@ -373,9 +373,9 @@ namespace NuclearWorld
                                 if (fighterClass == "a")
                                 {
                                     UserInteraction.StoryDialogue($"You return fire at the enemy, dealing damage.");
-                                    UserInteraction.StoryDialogue($"{badGuy.Name}'s health before dmg: {badGuy.Health}");
+                                    UserInteraction.StoryDialogue($" {badGuy.Name}'s health before dmg: {badGuy.Health}");
                                     badGuy.Health = Combat.Fighting(mainCharacter.Weapon.DamageValue, badGuy.Health);
-                                    UserInteraction.StoryDialogue($"{badGuy.Name}'s health after dmg: {badGuy.Health}");
+                                    UserInteraction.StoryDialogue($" {badGuy.Name}'s health after dmg: {badGuy.Health}");
                                     Console.WriteLine();                                    
                                     UserInteraction.PressEnter();
                                     Console.Clear();
@@ -383,9 +383,9 @@ namespace NuclearWorld
                                 else if (fighterClass == "b")
                                 {
                                     UserInteraction.StoryDialogue($"You take your chance while the {badGuy.Name} is reloading.. You charge him full force.\n Swinging with all your might.. You deal damage.");
-                                    UserInteraction.StoryDialogue($"{badGuy.Name}'s health before dmg: {badGuy.Health}");
+                                    UserInteraction.StoryDialogue($" {badGuy.Name}'s health before dmg: {badGuy.Health}");
                                     badGuy.Health = Combat.Fighting(mainCharacter.Weapon.DamageValue, badGuy.Health);
-                                    UserInteraction.StoryDialogue($"{badGuy.Name}'s health after dmg: {badGuy.Health}");
+                                    UserInteraction.StoryDialogue($" {badGuy.Name}'s health after dmg: {badGuy.Health}");
                                     Console.WriteLine();                                    
                                     UserInteraction.PressEnter();
                                     Console.Clear();
@@ -482,9 +482,9 @@ namespace NuclearWorld
 
                                     UserInteraction.StoryDialogue($" You return fire at the {otherBadGuy.Name}.. your bullets pierce his armor, wounding him.");
                                     Console.WriteLine();
-                                    UserInteraction.StoryDialogue($"{otherBadGuy.Name}'s health before dmg: {otherBadGuy.Health}");
+                                    UserInteraction.StoryDialogue($" {otherBadGuy.Name}'s health before dmg: {otherBadGuy.Health}");
                                     otherBadGuy.Health = Combat.Fighting(mainCharacter.Weapon.DamageValue, otherBadGuy.Health);
-                                    UserInteraction.StoryDialogue($"{otherBadGuy.Name}'s health after dmg: {otherBadGuy.Health}");
+                                    UserInteraction.StoryDialogue($" {otherBadGuy.Name}'s health after dmg: {otherBadGuy.Health}");
                                     Console.WriteLine();                                    
                                     UserInteraction.PressEnter();
                                     Console.Clear();
@@ -493,9 +493,9 @@ namespace NuclearWorld
                                 {
                                     UserInteraction.StoryDialogue($" You take your chance while the {otherBadGuy.Name} is reloading.. and you charge at him full force.\n You cut into his chest deeply, wounding him.");
                                     Console.WriteLine();
-                                    UserInteraction.StoryDialogue($"{otherBadGuy.Name}'s health before dmg: {otherBadGuy.Health}");
+                                    UserInteraction.StoryDialogue($" {otherBadGuy.Name}'s health before dmg: {otherBadGuy.Health}");
                                     Combat.Fighting(mainCharacter.Weapon.DamageValue, otherBadGuy.Health);
-                                    UserInteraction.StoryDialogue($"{otherBadGuy.Name}'s health after dmg: {otherBadGuy.Health}");
+                                    UserInteraction.StoryDialogue($" {otherBadGuy.Name}'s health after dmg: {otherBadGuy.Health}");
                                     Console.WriteLine();                                    
                                     UserInteraction.PressEnter();
                                     Console.Clear();
@@ -546,6 +546,7 @@ namespace NuclearWorld
                 {
                     UserInteraction.StoryDialogue("Life is hard.\nGame over.");
                     Console.ForegroundColor = ConsoleColor.White;
+                    Environment.Exit(0);
                 }
             }
         }
