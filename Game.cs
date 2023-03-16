@@ -77,8 +77,7 @@ namespace NuclearWorld
 
                         UserInteraction.FighterClassSelection(fighterClass);
 
-                    } while (fighterClass != "a" && fighterClass != "b");
-                    UserInteraction.PressEnter();
+                    } while (fighterClass != "a" && fighterClass != "b");                    
 
 
                     if (fighterClass == "a")
@@ -238,8 +237,8 @@ namespace NuclearWorld
                                 Console.WriteLine();
                                 UserInteraction.StoryDialogue($" Your health before dmg: {MainCharacter.Health}");
                                 MainCharacter.TakeDamage(scavenger.AttackDamage);
-                                UserInteraction.GameOver();
                                 UserInteraction.StoryDialogue($" Your health after dmg: {MainCharacter.Health}");
+                                UserInteraction.GameOver();
                                 UserInteraction.PressEnter();
                                 if (fighterClass == "a")
                                 {
