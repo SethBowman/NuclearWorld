@@ -359,6 +359,8 @@ namespace NuclearWorld
 
 
                         bool fightOrRun = UserInteraction.YesOrNo(Console.ReadLine().ToLower());
+                        UserInteraction.PressEnter();
+                        Console.Clear();
 
                         if (fightOrRun)
                         {
@@ -368,8 +370,8 @@ namespace NuclearWorld
                                 Console.WriteLine();
                                 UserInteraction.StoryDialogue($" Your health before dmg: {MainCharacter.Health}");
                                 MainCharacter.TakeDamage(badGuy.AttackDamage);
-                                UserInteraction.GameOver();
                                 UserInteraction.StoryDialogue($" Your health after dmg: {MainCharacter.Health}");
+                                UserInteraction.GameOver();
                                 UserInteraction.PressEnter();
                                 if (fighterClass == "a")
                                 {
@@ -466,6 +468,8 @@ namespace NuclearWorld
                         UserInteraction.StoryDialogue($"(Type 'yes' to fight or 'no' to run.)");
 
                         bool fightOrRun = UserInteraction.YesOrNo(Console.ReadLine().ToLower());
+                        UserInteraction.PressEnter();
+                        Console.Clear();
 
                         if (fightOrRun)
                         {

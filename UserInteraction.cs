@@ -37,6 +37,8 @@ namespace NuclearWorld
             {
                 Console.WriteLine("That is not an option. Choose again!");
             }
+            PressEnter();
+            Console.Clear();
         }
 
         public static void PressEnter()
