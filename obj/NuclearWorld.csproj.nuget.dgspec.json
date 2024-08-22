@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\brand\\Desktop\\repos\\NuclearWorld\\NuclearWorld.csproj": {}
+    "C:\\Users\\sbowm\\OneDrive\\Desktop\\projects\\NuclearWorld\\NuclearWorld.csproj": {}
   },
   "projects": {
-    "C:\\Users\\brand\\Desktop\\repos\\NuclearWorld\\NuclearWorld.csproj": {
+    "C:\\Users\\sbowm\\OneDrive\\Desktop\\projects\\NuclearWorld\\NuclearWorld.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\brand\\Desktop\\repos\\NuclearWorld\\NuclearWorld.csproj",
+        "projectUniqueName": "C:\\Users\\sbowm\\OneDrive\\Desktop\\projects\\NuclearWorld\\NuclearWorld.csproj",
         "projectName": "NuclearWorld",
-        "projectPath": "C:\\Users\\brand\\Desktop\\repos\\NuclearWorld\\NuclearWorld.csproj",
-        "packagesPath": "C:\\Users\\brand\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\brand\\Desktop\\repos\\NuclearWorld\\obj\\",
+        "projectPath": "C:\\Users\\sbowm\\OneDrive\\Desktop\\projects\\NuclearWorld\\NuclearWorld.csproj",
+        "packagesPath": "C:\\Users\\sbowm\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sbowm\\OneDrive\\Desktop\\projects\\NuclearWorld\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\brand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sbowm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
         }
       }
     }
